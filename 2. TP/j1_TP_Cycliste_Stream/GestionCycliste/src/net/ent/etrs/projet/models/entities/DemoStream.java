@@ -66,7 +66,7 @@ public class DemoStream {
     public static List<String> retournerNomsPrenomsCycliste(List<Cycliste> lst) {
         return lst.stream()
                 .map(cycliste -> cycliste.getNom().toUpperCase() + " " + cycliste.getPrenom().toUpperCase())
-                .collect(Collectors.toList());
+                .toList();
     }
 
     /**
@@ -75,7 +75,7 @@ public class DemoStream {
     public static List<Cycliste> retournerCyclistesFrequencePlusDe160(List<Cycliste> lst) {
         return lst.stream()
                 .filter(cycliste -> cycliste.calculerFrequenceCardiaqueMax() > 160)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     /**
@@ -84,7 +84,7 @@ public class DemoStream {
     public static Cycliste retournerCyclisteFrequenceMax(List<Cycliste> lst) {
         return lst.stream()
                 .max(Comparator.comparingInt(Cycliste::calculerFrequenceCardiaqueMax))
-                .orElse(null);
+                .get();
     }
 
     /**
@@ -94,7 +94,8 @@ public class DemoStream {
     public static Double calculerFrequenceCardiaqueMaxMoyenne(List<Cycliste> lst) {
         return lst.stream()
                 .mapToDouble(Cycliste::calculerFrequenceCardiaqueMax)
-                .average().orElse(0);
+                .average()
+                .getAsDouble();
     }
 
     /**
@@ -109,7 +110,10 @@ public class DemoStream {
      * Affiche les 2 cyclistes les plus vieux.
      */
     public static void afficherLesDeuxPlusVieuxCycliste(List<Cycliste> lst) {
-        lst.stream().sorted(Comparator.comparingInt(Cycliste::calculerAge).reversed()).limit(2).forEach(System.out::println);
+        lst.stream()
+        .sorted(Comparator.comparingInt(Cycliste::calculerAge)
+        .reversed()).limit(2)
+        .forEach(System.out::println);
     }
 
     /**
@@ -119,7 +123,7 @@ public class DemoStream {
         return lst.stream()
                 .map(Cycliste::getSpecialite)
                 .distinct()
-                .collect(Collectors.toList());
+                .toList();
     }
 
     /**
@@ -139,6 +143,6 @@ public class DemoStream {
     public static List<Cycliste> retournerLesLeader(List<Cycliste> lst) {
         return lst.stream()
                 .filter(specialite -> specialite.getSpecialite().equals(TypeSpecialite.LEADER))
-                .collect(Collectors.toList());
+                .toList();
     }
 }
