@@ -5,6 +5,7 @@ import net.ent.etrs.shell.start.commons.utils.LectureConsole;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -12,49 +13,145 @@ import java.util.List;
 import java.util.Objects;
 
 public class Lanceur {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String shell;
-        String pathStr = System.getProperty("user.dir");
-        Path path = Paths.get(pathStr);
+        Path path = Paths.get(System.getProperty("user.dir"));
 
-        do {
-            shell = LectureConsole.lectureChaineCaracteres(">>> " + pathStr + ">");
+        try {
+            do {
+                shell = LectureConsole.lectureChaineCaracteres(">>> " + path + ">");
 
-            String[] arguments = shell.split(" ");
+                String[] arguments = shell.split(" ");
+                String nomDossierOuFichierAvecEspace = "";
 
-            if (shell.equals("help")) {
-                affichageHelp();
-            } else if (shell.equals("ls")) {
-                afficherLS(path);
-            } else if (shell.equals("cd " + arguments[1])) {
-                pathStr += "\\" + arguments[1];
-                path = seDeplacerDansLeDossier(path, arguments[1]);
+                if (shell.equals("help")) {
+                    affichageHelp();
+                }
+
+                if (shell.equals("ls")) {
+                    afficherLS(path);
+                }
+
+                if (shell.equals("cd ..") || shell.equals("cd")) {
+                    path = remonterUnNiveau(path);
+                }
+
+                if (shell.contains("cd ")) {
+                    if (arguments.length > 1) {
+                        nomDossierOuFichierAvecEspace = recupererTousLesArguments(arguments);
+                        path = seDeplacerDansLeDossier(path, nomDossierOuFichierAvecEspace);
+                    } else {
+                        AffichageConsole.afficherErreur("Il faut saisir un nom de dossier !");
+                    }
+                }
+
+                if (shell.contains("mkdir")) {
+                    if (arguments.length > 1) {
+                        nomDossierOuFichierAvecEspace = recupererTousLesArguments(arguments);
+                        creerUnDossier(path, nomDossierOuFichierAvecEspace);
+                    } else {
+                        AffichageConsole.afficherErreur("Il faut saisir un nom de dossier !");
+                    }
+                }
+
+                if (shell.contains("touch")) {
+                    if (arguments.length > 1) {
+                        nomDossierOuFichierAvecEspace = recupererTousLesArguments(arguments);
+                        creerUnFichier(path, nomDossierOuFichierAvecEspace);
+                    } else {
+                        AffichageConsole.afficherErreur("Il faut saisir un nom de fichier !");
+                    }
+                }
+
+                if (shell.contains(">>>")) {
+
+                }
+            } while (!shell.contains("exit"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void creerUnFichier(Path path, String nomDossierOuFichierAvecEspace) {
+        try {
+            Path oui = Paths.get(path + "\\" + nomDossierOuFichierAvecEspace);
+            if (Files.exists(oui)) {
+                AffichageConsole.afficherErreur(String.format("Le fichier %s existe déjà !", oui.getFileName()));
+            } else {
+                Files.createFile(oui);
+                AffichageConsole.afficherMessageAvecSautLigne(String.format("Le fichier %s a été créé avec succès !", oui.getFileName()));
             }
-        } while (!shell.contains("exit"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void creerUnDossier(Path path, String nomDossierAvecEspace) {
+        try {
+            Path oui = Paths.get(path + "\\" + nomDossierAvecEspace);
+            if (Files.exists(oui)) {
+                AffichageConsole.afficherErreur(String.format("Le dossier %s existe déjà !", oui.getFileName()));
+            } else {
+                Files.createDirectory(oui);
+                AffichageConsole.afficherMessageAvecSautLigne(String.format("Le dossier %s a été créé avec succès !", oui.getFileName()));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static String recupererTousLesArguments(String[] arguments) {
+        StringBuilder nomDossierAvecEspace = new StringBuilder(arguments[1]);
+        if (arguments.length > 2) {
+            nomDossierAvecEspace.append(" ");
+            for (int i = 2; i < arguments.length; i++) {
+                if (i != arguments.length - 1) {
+                    nomDossierAvecEspace.append(arguments[i]).append(" ");
+                } else {
+                    nomDossierAvecEspace.append(arguments[i]);
+                }
+            }
+        }
+        return nomDossierAvecEspace.toString();
     }
 
     private static Path seDeplacerDansLeDossier(Path path, String argument) {
-        return Paths.get(path.toString() + "\\" + argument);
+        File file = new File(path.toString() + "\\" + argument);
+        if (!file.exists() || file.isFile()) {
+            AffichageConsole.afficherErreur(file + " n'est pas un dossier valide !");
+            return path;
+        }
+        return Paths.get(path + "\\" + argument);
     }
 
-    private static void remonterUnNiveau() {
+    private static Path remonterUnNiveau(Path path) {
+        if (path.equals(path.getRoot())) {
+            AffichageConsole.afficherErreur("Tu as déjà atteint la racine !");
+            return path;
+        }
+        return path.getParent();
     }
 
     private static void afficherLS(Path path) throws IOException {
+        File dir = new File(path.toString());
+
         String format1 = "%-40s | %-20s | %-10s";
+        String directoryOrFile;
 
         AffichageConsole.afficherMessageAvecSautLigne(String.format(format1, "FILENAME", "SIZE", "TYPE"));
         AffichageConsole.afficherMessageAvecSautLigne("-".repeat(200));
 
-        File dir = new File(path.toString());
-        for (File item : Objects.requireNonNull(dir.listFiles())) {
-            String directoryOrFile = "";
-            if (item.isDirectory()) {
-                directoryOrFile = "D";
-            } else {
-                directoryOrFile = "F";
+        if (Objects.requireNonNull(dir.listFiles()).length == 0) {
+            AffichageConsole.afficherMessageAvecSautLigne("Il n'y a aucun dossier ou fichier là dedans");
+        } else {
+            for (File item : Objects.requireNonNull(dir.listFiles())) {
+                if (item.isDirectory()) {
+                    directoryOrFile = "D";
+                } else {
+                    directoryOrFile = "F";
+                }
+                AffichageConsole.afficherMessageAvecSautLigne(String.format(format1, item.getName(), item.length(), directoryOrFile));
             }
-            AffichageConsole.afficherMessageAvecSautLigne(String.format(format1, item.getName(), item.length(), directoryOrFile));
         }
     }
 
