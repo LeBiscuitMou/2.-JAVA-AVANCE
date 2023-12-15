@@ -13,9 +13,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class Lanceur {
+    static Path path = Paths.get(System.getProperty("user.dir"));
     public static void main(String[] args) {
         String shell;
-        Path path = Paths.get(System.getProperty("user.dir"));
+
 
         try {
             do {
@@ -34,9 +35,7 @@ public class Lanceur {
 
                 if (shell.equals("cd ..") || shell.equals("cd")) {
                     path = remonterUnNiveau(path);
-                }
-
-                if (shell.contains("cd ")) {
+                } else if (shell.startsWith("cd ")) {
                     if (arguments.length > 1) {
                         nomDossierOuFichierAvecEspace = recupererTousLesArguments(arguments);
                         path = seDeplacerDansLeDossier(path, nomDossierOuFichierAvecEspace);
@@ -45,7 +44,7 @@ public class Lanceur {
                     }
                 }
 
-                if (shell.contains("mkdir")) {
+                if (shell.startsWith("mkdir ")) {
                     if (arguments.length > 1) {
                         nomDossierOuFichierAvecEspace = recupererTousLesArguments(arguments);
                         creerUnDossier(path, nomDossierOuFichierAvecEspace);
@@ -54,7 +53,7 @@ public class Lanceur {
                     }
                 }
 
-                if (shell.contains("touch")) {
+                if (shell.startsWith("touch ")) {
                     if (arguments.length > 1) {
                         nomDossierOuFichierAvecEspace = recupererTousLesArguments(arguments);
                         creerUnFichier(path, nomDossierOuFichierAvecEspace);
@@ -64,11 +63,24 @@ public class Lanceur {
                 }
 
                 if (shell.contains(">>>")) {
-
+                    String[] separationTexteEtNomFichier = shell.split(">>>");
+                    String contenu = separationTexteEtNomFichier[0];
+                    String nomFichier = separationTexteEtNomFichier[1];
+                    remplirFichier(nomFichier, contenu);
                 }
             } while (!shell.contains("exit"));
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void remplirFichier(String nomFichier, String contenu) {
+        byte[] bytes = contenu.getBytes();
+        Path fichier = Paths.get(path + "\\" + nomFichier);
+        try {
+            Files.write(fichier, bytes);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
