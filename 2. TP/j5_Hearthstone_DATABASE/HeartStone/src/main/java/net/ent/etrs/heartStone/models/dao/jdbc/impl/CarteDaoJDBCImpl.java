@@ -40,7 +40,9 @@ public class CarteDaoJDBCImpl extends JDBCBaseDao<Carte> implements CarteDao {
         try {
             ps = getCnx().prepareStatement("SELECT id, nom, cout, date_sortie, type_carte, classe" +
                                                 " FROM TABLE(CARTE)" +
-                                                " WHERE id=" + id);
+                                                " WHERE id=?");
+            ps.setLong(1, id);
+
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -89,11 +91,30 @@ public class CarteDaoJDBCImpl extends JDBCBaseDao<Carte> implements CarteDao {
 
     @Override
     public void delete(Long id) throws DaoException {
-
+        try {
+            PreparedStatement ps = getCnx().prepareStatement("DELETE FROM CARTE WHERE id = ?");
+            ps.setLong(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        }
     }
 
     @Override
     public boolean exists(Long id) throws DaoException {
+        try {
+            PreparedStatement ps = getCnx().prepareStatement("SELECT COUNT(id) FROM TABLE(CARTE) WHERE id = ?");
+
+            ps.setLong(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return rs.getLong(1) > 0;
+            }
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        }
         return false;
     }
 
@@ -117,7 +138,7 @@ public class CarteDaoJDBCImpl extends JDBCBaseDao<Carte> implements CarteDao {
 
     @Override
     public List<Carte> getCarteByType(TypeCarte typeCarte) {
-        return null;
+
     }
 
     @Override
