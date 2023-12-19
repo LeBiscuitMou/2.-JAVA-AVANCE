@@ -67,7 +67,7 @@ public class CarteDaoJDBCImpl extends JDBCBaseDao<Carte> implements CarteDao {
 
         try {
             PreparedStatement ps = getCnx().prepareStatement("SELECT id, nom, cout, date_sortie, type_carte, classe" +
-                                                                    "FROM TABLE(CARTE)");
+                                                                    " FROM TABLE(CARTE)");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -101,7 +101,7 @@ public class CarteDaoJDBCImpl extends JDBCBaseDao<Carte> implements CarteDao {
     public long count() {
         try {
             PreparedStatement ps = getCnx().prepareStatement("SELECT COUNT(id)" +
-                                                                    "FROM TABLE(CARTE)");
+                                                                    " FROM TABLE(CARTE)");
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
