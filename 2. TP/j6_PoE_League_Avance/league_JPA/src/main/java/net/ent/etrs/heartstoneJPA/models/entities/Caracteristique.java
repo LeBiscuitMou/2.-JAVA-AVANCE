@@ -1,4 +1,4 @@
-package net.ent.etrs.heartStone.models.entities;
+package net.ent.etrs.heartstoneJPA.models.entities;
 
 import lombok.*;
 
@@ -10,12 +10,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+//JPA
 @Entity
-@Table(name = "caracteristique", uniqueConstraints = @UniqueConstraint(name = "uk__caracteristique_code", columnNames = {"code"}))
+@Table(name = "caracteristique",uniqueConstraints = @UniqueConstraint(name = "uk__caracteristique_code",columnNames = {"code"}))
+
 @EqualsAndHashCode(of ="code", callSuper = false)
 @ToString(of = {"code",  "description"},callSuper = true)
 @NoArgsConstructor(access= AccessLevel.PROTECTED)
-public class Caracteristique extends AbstractEntity {
+public class Caracteristique extends AbstractEntity{
 
     //LBK
     @Getter
@@ -23,9 +25,9 @@ public class Caracteristique extends AbstractEntity {
     //BV
     @NotNull(message = "la description est null")
     @NotBlank(message = "la description est vide ")
-    @Size(max = 255, message = "la description ne peut pas contenir plus de 255 caractères")
+    @Size(max = 255,message = "type max atteinte")
     //JPA
-    @Column(name = "description", nullable = false, length = 255)
+    @Column(name = "description",nullable = false,length = 255)
     private String description;
 
     //LBK
@@ -34,6 +36,7 @@ public class Caracteristique extends AbstractEntity {
     //BV
     @NotNull(message = "le code est null")
     @NotBlank(message = "le code est vide ")
-    @Column(name = "code", nullable = false, unique = true)
+    //JPA
+    @Column(name = "code",nullable = false,unique = true)
     private String code;
 }
