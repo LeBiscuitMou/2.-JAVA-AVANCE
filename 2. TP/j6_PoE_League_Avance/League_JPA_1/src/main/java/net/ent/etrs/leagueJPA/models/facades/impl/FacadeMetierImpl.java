@@ -1,15 +1,25 @@
 package net.ent.etrs.leagueJPA.models.facades.impl;
 
+import net.ent.etrs.leagueJPA.models.dao.ChallengeDao;
+import net.ent.etrs.leagueJPA.models.dao.DaoFactory;
+import net.ent.etrs.leagueJPA.models.dao.LeagueDao;
+import net.ent.etrs.leagueJPA.models.dao.PersonnageDao;
+import net.ent.etrs.leagueJPA.models.dao.exceptions.DaoException;
 import net.ent.etrs.leagueJPA.models.entities.Challenge;
 import net.ent.etrs.leagueJPA.models.entities.League;
 import net.ent.etrs.leagueJPA.models.entities.Personnage;
 import net.ent.etrs.leagueJPA.models.entities.references.LabySpecialite;
 import net.ent.etrs.leagueJPA.models.facades.FacadeMetier;
+import net.ent.etrs.leagueJPA.models.facades.exception.BusinessException;
 
+import java.sql.SQLException;
 import java.util.Map;
 import java.util.Set;
 
 public class FacadeMetierImpl implements FacadeMetier {
+    ChallengeDao challengeDao = DaoFactory.getDaoChallenge();
+    LeagueDao leagueDao = DaoFactory.getDaoLeague();
+    PersonnageDao personnageDao = DaoFactory.getDaoPersonnage();
 
     /**
      * Permet de sauvegarder un personnage
@@ -17,8 +27,12 @@ public class FacadeMetierImpl implements FacadeMetier {
      * @param personnage le personnage à sauvegarder
      */
     @Override
-    public void savePersonnage(Personnage personnage) {
-
+    public void savePersonnage(Personnage personnage) throws BusinessException {
+        try {
+            this.personnageDao.save(personnage);
+        } catch (DaoException | SQLException e) {
+            throw new BusinessException("Impossible de sauvegarder le personnage", e);
+        }
     }
 
     /**
@@ -27,8 +41,12 @@ public class FacadeMetierImpl implements FacadeMetier {
      * @param challenge le challenge à sauvegarder
      */
     @Override
-    public void saveChallenge(Challenge challenge) {
-
+    public void saveChallenge(Challenge challenge) throws BusinessException {
+        try {
+            this.challengeDao.save(challenge);
+        } catch (DaoException | SQLException e) {
+            throw new BusinessException("Impossible de sauvegarder le challenge", e);
+        }
     }
 
     /**
@@ -37,8 +55,12 @@ public class FacadeMetierImpl implements FacadeMetier {
      * @param league la league à sauvegarder
      */
     @Override
-    public void saveLeague(League league) {
-
+    public void saveLeague(League league) throws BusinessException {
+        try {
+            this.leagueDao.save(league);
+        } catch (DaoException | SQLException e) {
+            throw new BusinessException("Impossible de sauvegarder la league", e);
+        }
     }
 
     /**
@@ -47,8 +69,14 @@ public class FacadeMetierImpl implements FacadeMetier {
      * @param personnage le personnage à supprimer
      */
     @Override
-    public void deletePersonnage(Personnage personnage) {
-
+    public void deletePersonnage(Personnage personnage) throws BusinessException {
+        try {
+            if (personnageDao.exists(personnage.getId())) {
+                personnageDao.delete(personnage.getId());
+            }
+        } catch (DaoException e) {
+            throw new BusinessException("Impossible de supprimer personnage", e);
+        }
     }
 
     /**
@@ -57,8 +85,14 @@ public class FacadeMetierImpl implements FacadeMetier {
      * @param challenge le challenge à supprimer
      */
     @Override
-    public void deleteChallenge(Challenge challenge) {
-
+    public void deleteChallenge(Challenge challenge) throws BusinessException {
+        try {
+            if (challengeDao.exists(challenge.getId())) {
+                challengeDao.delete(challenge.getId());
+            }
+        } catch (DaoException e) {
+            throw new BusinessException("Impossible de supprimer challenge", e);
+        }
     }
 
     /**
@@ -67,8 +101,14 @@ public class FacadeMetierImpl implements FacadeMetier {
      * @param league la league à supprimer
      */
     @Override
-    public void deleteLeague(League league) {
-
+    public void deleteLeague(League league) throws BusinessException {
+        try {
+            if (leagueDao.exists(league.getId())) {
+                leagueDao.delete(league.getId());
+            }
+        } catch (DaoException e) {
+            throw new BusinessException("Impossible de supprimer league", e);
+        }
     }
 
     /**
@@ -107,8 +147,12 @@ public class FacadeMetierImpl implements FacadeMetier {
      * @return le challenge qui possède le plus de points
      */
     @Override
-    public Challenge getBestChallenge() {
-        return null;
+    public Challenge getBestChallenge() throws BusinessException {
+        try {
+            return this.challengeDao.getBestChallenge().orElseThrow();
+        } catch (DaoException e) {
+            throw new BusinessException("Impossible", e);
+        }
     }
 
     /**
@@ -117,8 +161,12 @@ public class FacadeMetierImpl implements FacadeMetier {
      * @return une Map contenant la league et la somme de ses reward points.
      */
     @Override
-    public Map<League, Integer> GetRewardPointsByLeague() {
-        return null;
+    public Map<League, Long> GetRewardPointsByLeague() throws BusinessException {
+        try {
+            return this.leagueDao.getRewardPointsByLeague();
+        } catch (DaoException e) {
+            throw new BusinessException("Impossible de récupérer les points par league", e);
+        }
     }
 
     /**
@@ -129,7 +177,7 @@ public class FacadeMetierImpl implements FacadeMetier {
      */
     @Override
     public Set<LabySpecialite> topThreeBestBuild(League league) {
-        return null;
+        return this.leagueDao.topThreeBestBuild(league);
     }
 
     /**
@@ -139,6 +187,6 @@ public class FacadeMetierImpl implements FacadeMetier {
      */
     @Override
     public Map<League, Set<LabySpecialite>> bestBuildByLeague() {
-        return null;
+        return this.leagueDao.bestBuildByLeague();
     }
 }

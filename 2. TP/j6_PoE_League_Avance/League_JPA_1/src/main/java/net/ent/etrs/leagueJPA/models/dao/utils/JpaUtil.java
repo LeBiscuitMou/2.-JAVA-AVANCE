@@ -11,7 +11,7 @@ public final class JpaUtil {
     private static EntityManager em;
 
     static {
-        JpaUtil.em = Persistence.createEntityManagerFactory("pu-heartstone").createEntityManager(); // pu name
+        JpaUtil.em = Persistence.createEntityManagerFactory("pu-poe").createEntityManager(); // pu name
     }
 
     public static EntityManager getEm() {

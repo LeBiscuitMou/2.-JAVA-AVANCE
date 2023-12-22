@@ -64,9 +64,9 @@ public class League extends AbstractEntity {
     }
 
     @ElementCollection
-    @CollectionTable
-    @MapKeyJoinColumn
-    @Column
+    @CollectionTable(name = "classement", joinColumns = @JoinColumn(name = "league_id", foreignKey = @ForeignKey(name = "fk__classement_league_id")))
+    @MapKeyJoinColumn(name = "personnage", foreignKey = @ForeignKey(name = "fk__classement_personnage_id"))
+    @Column(name = "classement")
     private Map<Personnage, Integer> classement = new HashMap<>();
 
     public Map<Personnage, Integer> getClassement() {
@@ -87,6 +87,6 @@ public class League extends AbstractEntity {
     }
 
     private boolean ContientMinRewardPoints() {
-        return getChallenges().stream().mapToInt(Challenge::getRewardPoints).sum() >= 50;
+        return this.challenges.stream().mapToInt(Challenge::getRewardPoints).sum() >= 50;
     }
 }
