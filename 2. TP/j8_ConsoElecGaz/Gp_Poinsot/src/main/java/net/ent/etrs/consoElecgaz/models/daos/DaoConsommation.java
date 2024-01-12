@@ -20,7 +20,7 @@ public interface DaoConsommation extends BaseDao<Consomation, Serializable> {
 
     List<Consomation> findAllConsomationsByRegionsAndBeforeDate(List<Region> lesRegions, LocalDate date) throws DaoException;
 
-    Map<LocalDate, Double> sumConsomationsForRegionAndBeforeDate(Region region, LocalDate date) throws BusinessException;
+    Map<LocalDate, Double> sumConsomationsForRegionAndBeforeDate(Region region, LocalDate date) throws BusinessException, DaoException;
 
     List<Consomation> consomationsByOperateurAndAfterDate(Operateur operateur, LocalDate date) throws DaoException;
 

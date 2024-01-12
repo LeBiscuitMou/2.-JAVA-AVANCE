@@ -73,7 +73,7 @@ public class DaoImplConsommation extends AbstractJpaDao<Consomation, Serializabl
 
 
     @Override
-    public Map<LocalDate, Double> sumConsomationsForRegionAndBeforeDate(Region region, LocalDate date) throws BusinessException {
+    public Map<LocalDate, Double> sumConsomationsForRegionAndBeforeDate(Region region, LocalDate date) throws BusinessException, DaoException {
         try {
 
             Map<Region, Consomation> tp = this.em.createQuery("SELECT r as regionSel, c as toto " +
