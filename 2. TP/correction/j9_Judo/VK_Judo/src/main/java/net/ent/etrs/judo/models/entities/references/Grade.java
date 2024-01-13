@@ -3,6 +3,9 @@ package net.ent.etrs.judo.models.entities.references;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 public enum Grade {
@@ -36,15 +39,6 @@ public enum Grade {
      * @return le grade supérieur
      */
     public Grade next() {
-        boolean gradeTrouve = false;
-        for(Grade grade : Grade.values()){
-            if(gradeTrouve){
-                return grade;
-            }
-            if(grade.getNom().equals(this.getNom())){
-                gradeTrouve = true;
-            }
-        }
-        return Grade.values()[Grade.values().length-1];
+        return this.ordinal() >= values().length ? null : values()[this.ordinal()+1];
     }
 }

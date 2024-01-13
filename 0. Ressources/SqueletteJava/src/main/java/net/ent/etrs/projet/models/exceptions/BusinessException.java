@@ -2,7 +2,7 @@ package net.ent.etrs.projet.models.exceptions;
 
 import java.security.PrivilegedActionException;
 
-public class BusinessException extends Exception{
+public class BusinessException extends java.lang.Exception {
     /**
      * Constructs a new exception with the specified detail message.  The
      * cause is not initialized, and may subsequently be initialized by

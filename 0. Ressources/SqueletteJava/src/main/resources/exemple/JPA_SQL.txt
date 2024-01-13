@@ -1,0 +1,45 @@
+try {
+    TypedQuery<Personnage> query = this.em.createQuery("SELECT t " +
+                    "FROM Personnage t " +
+                    "WHERE t.pseudo = :pseudo"
+                    , Personnage.class);
+    query.setParameter("pseudo", pseudo);
+
+    List<Personnage> list = query.getResultList();
+    if(list.isEmpty()){
+        return Optional.empty();
+    }
+    return Optional.ofNullable(list.get(0));
+
+} catch (IllegalArgumentException e) {
+    throw new DaoException(e);
+}
+
+try {
+    TypedQuery<Personnage> query = this.em.createQuery("SELECT t " +
+                    "FROM Personnage t " +
+                    "WHERE t.pseudo = :pseudo"
+                    , Personnage.class);
+    query.setParameter("pseudo", pseudo);
+
+    return query.getResultList();
+} catch (IllegalArgumentException e) {
+    throw new DaoException(e);
+}
+
+POUR LES MAP EN QUERY JPQL : KEY(map), VALUE(map)
+
+/*************************************************************************************************************/
+à utiliser pour les requêtes ou il faut récupérer des trucs dans des map.
+
+
+Query query = this.em.createNativeQuery("SELECT build_perso " +
+                "FROM league_personnage c, personnage p " +
+                "WHERE c.personnage_id = p.id " +
+                "AND c.league_id = " + id + " " +
+                "GROUP BY build_perso " +
+                "ORDER BY MIN(rang) ASC").setMaxResults(3);
+
+Set<LabySpecialite> set = new HashSet<>();
+query.getResultList().forEach(r -> set.add(LabySpecialite.valueOf((String) r)));
+return set;

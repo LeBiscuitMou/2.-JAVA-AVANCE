@@ -26,4 +26,5 @@ public interface IDaoClub extends BaseDao<Club> {
      * @throws DaoException erreur BDD
      */
     List<Club> findAllClubByVille(Ville pVille) throws DaoException;
+
 }

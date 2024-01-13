@@ -17,12 +17,13 @@ import java.util.Objects;
 import java.util.Optional;
 
 public abstract class JpaBaseDao<T extends AbstractEntity> implements BaseDao<T> {
-
+    @Getter
     protected Class<T> entityClass;
 
     @Getter
     @Setter
     protected EntityManager em;
+
 
     @SuppressWarnings("unchecked")
     protected JpaBaseDao() {

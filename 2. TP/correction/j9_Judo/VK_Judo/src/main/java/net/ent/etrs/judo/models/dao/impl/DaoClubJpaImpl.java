@@ -23,8 +23,8 @@ public class DaoClubJpaImpl extends JpaBaseDao<Club> implements IDaoClub {
         try {
             TypedQuery<Club> query = this.em.createQuery
                     ("SELECT cl " +
-                                    "FROM Club cl, Judoka ju " +
-                                    "WHERE cl.nom = :nom AND cl.membres = ju"
+                                    "FROM Club cl " +
+                                    "WHERE cl.nom = :nom AND cl.membres IS NOT EMPTY"
                             , Club.class);
             query.setParameter("nom", pName);
 

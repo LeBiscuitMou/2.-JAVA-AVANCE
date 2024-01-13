@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class JpaUtil {
-    private static final String PERSIST_UNIT_NAME = "pu";
+    private static final String PERSIST_UNIT_NAME = "...";
     private static EntityManager em;
 
     static {

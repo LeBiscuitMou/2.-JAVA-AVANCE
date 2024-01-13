@@ -29,7 +29,7 @@ public enum Categorie {
     private final int maxEcluded;
 
     public static Categorie get(final boolean pFeminin, final int pPoids) {
-        for(Categorie categorie : Categorie.values()){
+        for(final Categorie categorie : Categorie.values()){
             if(categorie.isFeminin() == pFeminin && pPoids >= categorie.minIncluded && pPoids < categorie.getMaxEcluded()){
                 return categorie;
             }

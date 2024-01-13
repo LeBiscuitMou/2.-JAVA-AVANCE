@@ -47,4 +47,10 @@ public class Competition extends AbstractEntity {
     @Column(name = "ville", length = 50, nullable = false, unique = false)
     @Enumerated(value = EnumType.STRING)
     private Ville ville;
+
+    public Competition(String nom, int annee, Ville ville) {
+        this.setNom(nom);
+        this.setVille(ville);
+        this.setAnnee(annee);
+    }
 }

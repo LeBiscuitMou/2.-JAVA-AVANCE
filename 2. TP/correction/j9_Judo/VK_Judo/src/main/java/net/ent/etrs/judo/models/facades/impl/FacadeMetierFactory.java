@@ -2,6 +2,7 @@ package net.ent.etrs.judo.models.facades.impl;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import net.ent.etrs.judo.models.facades.FacadeMetier;
 import net.ent.etrs.judo.models.facades.interfaces.FacadeChargementFichier;
 import net.ent.etrs.judo.models.facades.interfaces.FacadeClub;
 import net.ent.etrs.judo.models.facades.interfaces.FacadeCompetition;

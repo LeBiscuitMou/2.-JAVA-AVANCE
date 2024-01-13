@@ -1,5 +1,6 @@
 package net.ent.etrs.judo.start;
 
+import net.ent.etrs.judo.models.facades.FacadeMetier;
 import net.ent.etrs.judo.models.facades.impl.FacadeMetierFactory;
 import net.ent.etrs.judo.presenter.Presenteur;
 import net.ent.etrs.judo.presenter.PresenteurFactory;

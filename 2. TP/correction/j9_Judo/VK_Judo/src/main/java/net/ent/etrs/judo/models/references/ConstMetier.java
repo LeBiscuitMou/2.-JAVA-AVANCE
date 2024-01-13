@@ -3,9 +3,12 @@ package net.ent.etrs.judo.models.references;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.time.format.DateTimeFormatter;
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ConstMetier {
-    public static final String INIT_FILE_NAME = "";
+    public static final String FORMATTER = "dd/MM/yyyy";
+    public static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern(FORMATTER);
 
     /* *********************************** MESSAGE ERREUR *********************************** */
     public static final String DATABASE_ACCESS = "une erreur est survenue lors de l'accès à la base de données ";

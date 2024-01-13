@@ -42,11 +42,18 @@ public class Club extends AbstractEntity {
     @Enumerated(value = EnumType.STRING)
     private Ville ville;
 
+    //BV
+    @Size(min = 1, message = "il doit y avoir au moins 1 membre")
     //JPA
     @OneToMany()
     @JoinColumn(name = "club_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk__judoka__club_id"))
     private final List<Judoka> membres = new ArrayList<>();
-    
+
+    public Club(String nom, Ville ville) {
+        this.setNom(nom);
+        this.setVille(ville);
+    }
+
     public void ajouterJudoka(Judoka addJudoka) throws ClubException {
         if(null == addJudoka){
             throw new ClubException(Judoka.class.getSimpleName() + " doit être référencé");
@@ -57,7 +64,7 @@ public class Club extends AbstractEntity {
         this.membres.add(addJudoka);
     }
     
-    public void supprimerJoueur(Judoka delJudoka) throws ClubException {
+    public void supprimerJudoka(Judoka delJudoka) throws ClubException {
         if(null == delJudoka){
             throw new ClubException(Judoka.class.getSimpleName() + " doit être référencé");
         }

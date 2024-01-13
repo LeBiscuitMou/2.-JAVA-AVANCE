@@ -1,5 +1,6 @@
 package net.ent.etrs.judo.presenter;
 
+import net.ent.etrs.judo.models.facades.FacadeMetier;
 import net.ent.etrs.judo.models.references.*;
 import net.ent.etrs.judo.presenter.exceptions.PresenteurException;
 import net.ent.etrs.judo.views.facades.FacadeView;

@@ -17,4 +17,11 @@ public abstract class AbstractEntity implements Serializable{
     @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id = null;
+
+    public void setId(Long id) {
+        if (Objects.nonNull(id)) {
+            this.id = id;
+        }
+    }
+
 }

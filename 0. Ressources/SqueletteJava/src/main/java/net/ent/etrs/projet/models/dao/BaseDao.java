@@ -19,5 +19,4 @@ public interface BaseDao<T extends AbstractEntity> {
     boolean exists(Long id) throws DaoException;
 
     long count() throws DaoException;
-
 }

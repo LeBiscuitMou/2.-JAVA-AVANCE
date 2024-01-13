@@ -1,6 +1,8 @@
 package net.ent.etrs.judo.models.facades.impl;
 
-public class FacadeMetierImpl {
+import net.ent.etrs.judo.models.facades.FacadeMetier;
+
+public class FacadeMetierImpl implements FacadeMetier {
     /* ******************************** DAOs ******************************** */
 
     /* ******************************** CONSTRUCTEUR ******************************** */

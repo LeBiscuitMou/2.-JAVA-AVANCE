@@ -1,5 +1,8 @@
 package net.ent.etrs.projet.models.commons;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -9,10 +12,8 @@ import java.util.Set;
  * Collection de méthode transformant des Itérables en Set ou List,
  * transforme des Sets en List et vice-versa.
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class CoUtils {
-
-    private CoUtils() {    }
-
     /**
      * Transforme un itérable en liste.
      *

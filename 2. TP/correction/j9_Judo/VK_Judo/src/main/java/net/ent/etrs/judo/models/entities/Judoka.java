@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 import net.ent.etrs.judo.models.entities.references.Categorie;
 import net.ent.etrs.judo.models.entities.references.Grade;
+import net.ent.etrs.judo.models.exceptions.GradeMinimumAgeException;
 import net.ent.etrs.judo.models.exceptions.JudokaException;
 
 
@@ -28,8 +29,10 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Entity
 @Table(name = "judoka", uniqueConstraints = @UniqueConstraint(columnNames = {"nom", "prenom", "dateDeNaissance"}, name = "uk__judoka"))
@@ -91,27 +94,45 @@ public class Judoka extends AbstractEntity {
     
     //LBK
     @Getter
-    @Setter
     //BV
     @NotNull(message = "le grade doit être référencé")
     //JPA
     @Column(name = "grade", length = 10, nullable = false, unique = false)
     @Enumerated(value = EnumType.STRING)
     private Grade grade;
-    
+
     @ElementCollection()
     @CollectionTable(name="judoka_competition",
           joinColumns=@JoinColumn(name = "judoka_id", foreignKey = @ForeignKey(name = "fk__judoka_competition__judoka_id")))
     @MapKeyJoinColumn(name="competition_id", nullable = false, foreignKey =  @ForeignKey(name = "fk__judoka_competition__competition_id"))
     @Column(name="classement", nullable = false, unique = false)
     private final Map<Competition, Integer> palmares = new HashMap<>();
+
+    public Judoka(String nom, String prenom, LocalDate dateDeNaissance, Integer taille, Categorie categorie, Grade grade) throws GradeMinimumAgeException {
+        this.setNom(nom);
+        this.setPrenom(prenom);
+        this.setDateDeNaissance(dateDeNaissance);
+        this.setTaille(taille);
+        this.setCategorie(categorie);
+        this.setGrade(grade);
+    }
+
+    public void setGrade(Grade grade) throws GradeMinimumAgeException {
+        final long age = ChronoUnit.YEARS.between(this.getDateDeNaissance(), LocalDate.now());
+        if(grade.getAgeMinimum() > age){
+            throw new GradeMinimumAgeException(String.format("%s %s | age actuel : %d ans | age minimum requis pour le grade %s : %d ans",
+                    this.nom, this.prenom,
+                    age, grade.getNom(), grade.getAgeMinimum()));
+        }
+        this.grade = grade;
+    }
     
     public void ajouterCompetition(Competition addCompetition, Integer classement) throws JudokaException {
         if(null == addCompetition){
             throw new JudokaException(Competition.class.getSimpleName() + " doit être référencé");
         }
         if(null == classement){
-            throw new JudokaException(classement + " doit être référencé");
+            throw new JudokaException("le classement doit être référencé");
         }
         this.palmares.put(addCompetition, classement + this.palmares.get(addCompetition));
     }
@@ -130,11 +151,19 @@ public class Judoka extends AbstractEntity {
         this.categorie = Categorie.get(this.categorie.isFeminin(), nouveauPoids);
     }
 
-    public void promouvoir(){
+    public void promouvoir() throws GradeMinimumAgeException {
         Grade nextGrade = this.grade.next();
-        if(grade.getAgeMinimum() <= dateDeNaissance.getYear()){
+        final long age = ChronoUnit.YEARS.between(this.getDateDeNaissance(), LocalDate.now());
+        if(nextGrade != null){
+            if(nextGrade.getAgeMinimum() > age){
+                throw new GradeMinimumAgeException(
+                        String.format("%s %s | age actuel : %d ans | age minimum requis pour le grade %s : %d ans",
+                                this.nom, this.prenom,
+                                age, nextGrade.getNom(), nextGrade.getAgeMinimum()));
+            }
             this.grade = nextGrade;
         }
+
     }
     
 }
