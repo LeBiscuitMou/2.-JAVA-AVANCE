@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+  <persistence-unit name="pu-logistock" transaction-type="RESOURCE_LOCAL"> <!-- Remplacer les ... par le nom du persistance unit. Le faire également dans JpaUtil -->
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="hibernate.default_schema" value="public"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
+
+      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+
+      <property name="javax.persistence.jdbc.url"
+                value="jdbc:postgresql://localhost:5432/JAVA_AVA_TEST_LOGISTOCK"/> <!-- Remplacer les ... par le nom de la base de données -->
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="javax.persistence.jdbc.password" value="postgres"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+    </properties>
+  </persistence-unit>
+</persistence>

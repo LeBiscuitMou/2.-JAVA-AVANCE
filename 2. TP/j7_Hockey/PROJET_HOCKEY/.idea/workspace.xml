@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0436ff29-0268-4ee7-8506-889442710ae8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../correction/j6_PoE_League_Avance/correction/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CEST HOCKEY/src/main/java/net/ent/etrs/hockey/models/entities/references/Poste.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CEST HOCKEY/src/main/java/net/ent/etrs/hockey/models/entities/references/Ville.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../correction/j6_PoE_League_Avance/correction/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../correction/j6_PoE_League_Avance/correction/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0436ff29-0268-4ee7-8506-889442710ae8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,6 +102,7 @@
       <workItem from="1704716356683" duration="317000" />
       <workItem from="1704717418343" duration="475000" />
       <workItem from="1704720067083" duration="30000" />
+      <workItem from="1705305532775" duration="28000" />
     </task>
     <servers />
   </component>
