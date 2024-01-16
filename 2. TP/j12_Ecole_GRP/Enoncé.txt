@@ -1,0 +1,9 @@
+A partir d'un des 2 fichiers fournis :
+
+Afficher :
+	- les ecole par Ville pour une année
+	- le nombre d'école par département pour une année
+	- la moyenne d'élève pour un niveau pour une ville pour une année
+	- la moyenne d'élève pour un niveau pour un département pour une année
+	- le nombre d'école privée, d'école public par département pour une année
+	- Si c'est possible, afficher le nombre d'élèves pour une ville, pour les années 2019 / 2020 / 2021 / 2022

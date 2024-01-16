@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashMap;
@@ -64,7 +65,17 @@ public class Commande extends AbstractEntity {
         return Collections.unmodifiableMap(articles);
     }
 
-    public void setArticles(Map<Article, Integer> articles) {
-        this.articles = articles;
+    public BigDecimal calculerPrixTotal() {
+        BigDecimal result = new BigDecimal(0);
+        
+        for(Map.Entry<Article, Integer> articleEntry : articles.entrySet()){
+            result = result.add(articleEntry.getKey().getPrix().multiply(BigDecimal.valueOf(articleEntry.getValue())));
+        }
+
+        if (result.compareTo(BigDecimal.valueOf(1000)) > 0) {
+            result = result.multiply(BigDecimal.valueOf(0.95));
+        }
+        
+        return result;
     }
 }

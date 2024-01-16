@@ -42,13 +42,21 @@ public class FacadeCommandeImpl implements IFacadeCommande {
     }
 
     @Override
-    public SortedSet<Commande> getAllCommandeByDate(LocalDate pDate) {
-        return daoCommande.findAllCommandesByDate(pDate);
+    public SortedSet<Commande> getAllCommandeByDate(LocalDate pDate) throws BusinessException {
+        try {
+            return daoCommande.findAllCommandesByDate(pDate);
+        } catch (DaoException e) {
+            throw new BusinessException(e.getMessage(), e);
+        }
     }
 
     @Override
-    public SortedSet<Commande> getAllCommandeInDate(LocalDate pDateMin, LocalDate pDateMax) {
-        return daoCommande.findAllCommandeInDate(pDateMin, pDateMax);
+    public SortedSet<Commande> getAllCommandeInDate(LocalDate pDateMin, LocalDate pDateMax) throws BusinessException {
+        try {
+            return daoCommande.findAllCommandeInDate(pDateMin, pDateMax);
+        } catch (DaoException e) {
+            throw new BusinessException(e.getMessage(), e);
+        }
     }
 
     @Override
@@ -57,13 +65,21 @@ public class FacadeCommandeImpl implements IFacadeCommande {
     }
 
     @Override
-    public Optional<Commande> getCommandeById(Long pId) {
-        return daoCommande.findCommandeById(pId);
+    public Optional<Commande> getCommandeById(Long pId) throws BusinessException {
+        try {
+            return daoCommande.findCommandeById(pId);
+        } catch (DaoException e) {
+            throw new BusinessException(e.getMessage(), e);
+        }
     }
 
     @Override
-    public Optional<Commande> getCommandeByNumeroCommande(String pNumeroCommande) {
-        return daoCommande.findCommandeByNumeroCommande(pNumeroCommande);
+    public Optional<Commande> getCommandeByNumeroCommande(String pNumeroCommande) throws BusinessException {
+        try {
+            return daoCommande.findCommandeByNumeroCommande(pNumeroCommande);
+        } catch (DaoException e) {
+            throw new BusinessException(e.getMessage(), e);
+        }
     }
 
     @Override

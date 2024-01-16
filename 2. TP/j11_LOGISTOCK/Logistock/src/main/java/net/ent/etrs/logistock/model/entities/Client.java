@@ -10,6 +10,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "client",
@@ -87,4 +90,30 @@ public class Client extends AbstractEntity {
     //JPA
     @Column(name = "numeroTelephone", length = 10, nullable = false, unique = false)
     private String numeroTelephone;
+
+    public boolean isVIP(List<Commande> commandes) {
+        boolean machin = false;
+        BigDecimal result = BigDecimal.ZERO;
+
+        for(Commande bite : commandes){
+            if (bite.getDateCommande().isBefore(LocalDate.now().plusMonths(6))) {
+                result = result.add(bite.calculerPrixTotal());
+            }
+        }
+
+        if (result.compareTo(BigDecimal.valueOf(5000)) > 0) {
+            machin = true;
+            appliquerRistourne(result, machin);
+        }
+
+        return machin;
+    }
+
+    public BigDecimal appliquerRistourne(BigDecimal result, boolean machin) {
+        if (machin) {
+            result = result.multiply(BigDecimal.valueOf(0.95));
+        }
+
+        return result;
+    }
 }
