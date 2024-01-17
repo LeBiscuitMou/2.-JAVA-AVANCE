@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e498856-9b1b-4b5d-82dc-4ff0d982eac8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../j7_Hockey/PROJET_HOCKEY/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j7_Hockey/PROJET_HOCKEY/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j7_Hockey/PROJET_HOCKEY/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j7_Hockey/PROJET_HOCKEY/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9e498856-9b1b-4b5d-82dc-4ff0d982eac8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/UV_3/2. JAVA AVANCE/2. TP/correction/j8_ConsoElecGaz/Correction/ConsoElecGaz",
+    "last_opened_file_path": "E:/UV_3/2. JAVA AVANCE/2. TP/correction/j9_Judo/JUDO_CORRECTION/JUDO",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -73,6 +70,7 @@
       <workItem from="1705150786503" duration="2176000" />
       <workItem from="1705158195814" duration="3035000" />
       <workItem from="1705310868829" duration="112000" />
+      <workItem from="1705483676346" duration="24000" />
     </task>
     <servers />
   </component>

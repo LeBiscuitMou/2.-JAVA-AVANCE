@@ -1,0 +1,3 @@
+return new TreeSet<>(CoUtils.iterableToSet(super.findAll()));
+
+return query.getResultStream().collect(Collectors.toCollection(TreeSet::new));

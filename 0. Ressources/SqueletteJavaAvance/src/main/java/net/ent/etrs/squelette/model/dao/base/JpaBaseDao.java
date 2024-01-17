@@ -3,7 +3,8 @@ package net.ent.etrs.squelette.model.dao.base;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.ent.etrs.squelette.model.exceptions.DaoException;
+import net.ent.etrs.squelette.model.dao.exceptions.DaoException;
+import net.ent.etrs.squelette.model.entities.AbstractEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -13,7 +14,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Optional;
 
-public abstract class JpaBaseDao<T, ID> implements BaseDao<T, Serializable> {
+public abstract class JpaBaseDao<T extends AbstractEntity> implements BaseDao<T> {
 
     protected Class<T> entityClass;
 
@@ -46,7 +47,7 @@ public abstract class JpaBaseDao<T, ID> implements BaseDao<T, Serializable> {
     }
 
     @Override
-    public Optional<T> find(Serializable id) throws DaoException {
+    public Optional<T> find(Long id) throws DaoException {
         try {
             return Optional.ofNullable(this.em.find(this.entityClass, id));
         } catch (IllegalArgumentException e) {
@@ -65,7 +66,7 @@ public abstract class JpaBaseDao<T, ID> implements BaseDao<T, Serializable> {
     }
 
     @Override
-    public void delete(Serializable id) throws DaoException {
+    public void delete(Long id) throws DaoException {
         try {
             EntityTransaction et = this.em.getTransaction();
             et.begin();
@@ -79,7 +80,7 @@ public abstract class JpaBaseDao<T, ID> implements BaseDao<T, Serializable> {
     }
 
     @Override
-    public boolean exists(Serializable id) throws DaoException {
+    public boolean exists(Long id) throws DaoException {
         try {
             return this.em
                     .createQuery("SELECT COUNT(t) FROM " + this.entityClass.getSimpleName() + " t WHERE t.id = :id", Long.class)

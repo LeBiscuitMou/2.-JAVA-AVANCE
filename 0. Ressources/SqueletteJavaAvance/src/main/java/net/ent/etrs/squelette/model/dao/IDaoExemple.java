@@ -5,5 +5,5 @@ import net.ent.etrs.squelette.model.entities.Exemple;
 
 import java.io.Serializable;
 
-public interface IDaoExemple extends BaseDao<Exemple, Serializable> {
+public interface IDaoExemple extends BaseDao<Exemple> {
 }

@@ -1,24 +1,32 @@
 package net.ent.etrs.squelette.model.commons.validator;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import net.ent.etrs.squelette.model.entities.exceptions.EntitiesFactoryException;
+import net.ent.etrs.squelette.model.entities.references.ConstantesMetier;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
+import javax.validation.ValidationException;
 import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ValidatorUtils {
-    public static <T> T validate(T o) throws ValidException {
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+    private ValidatorUtils() {    }
 
-        Set<ConstraintViolation<Object>> violations = validator.validate(o);
-        if (violations.size() != 0) {
-            throw new ValidException(violations);
+    public static <T> void refactorException(T objet) throws EntitiesFactoryException {
+        try {
+            validate(objet);
+        }catch (ValidationException e){
+            throw new EntitiesFactoryException(ConstantesMetier.ERROR_CREATION + objet.getClass().getSimpleName() + "\n" + e.getMessage());
         }
-        return o;
+    }
+
+    public static <T> void validate(T objetFabriquer) throws ValidationException {
+        Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+        Set<ConstraintViolation<T>> s = validator.validate(objetFabriquer);
+        if(!s.isEmpty()){
+            throw new ValidationException(s.stream().map(ConstraintViolation::getMessage)
+                    .collect(Collectors.joining("\n")));
+        }
     }
 }
