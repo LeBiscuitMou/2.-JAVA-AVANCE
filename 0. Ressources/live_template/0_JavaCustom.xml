@@ -1,0 +1,136 @@
+<templateSet group="0_JavaCustom">
+  <template name="jpaNombre" value="//LBK&#10;@Getter   @Setter&#10;//BV&#10;@Positive(message = &quot;$article$ $nom_textuel$ doit être positif&quot;)&#10;@Min(value = $val_min$, message = &quot;$article$ $nom_textuel$ ne peut pas être en dessous de $val_min$&quot;)&#10;@Max(value = $val_max$, message = &quot;$article$ $nom_textuel$ ne peut pas être au dessus de $val_max$&quot;)&#10;//JPA&#10;@Column(name = &quot;$var_name$&quot;, nullable = false, unique = false)&#10;private $type$ $var_name$;" description="tout le bordel pour les nombres" toReformat="false" toShortenFQNames="true">
+    <variable name="article" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="nom_textuel" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="val_min" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="val_max" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="type" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="var_name" expression="camelCase(nom_textuel)" defaultValue="var_name" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="facadeMethod" value="@Override&#10;public void save$Classe$($Classe$ ajout$Classe$) throws BusinessException {&#10;    try {&#10;        if (null == ajout$Classe$){&#10;            throw new BusinessException($Classe$.class.getSimpleName() + ConstMetier.ERROR_NULL);&#10;        }&#10;        dao$Classe$.save(ajout$Classe$);&#10;    } catch (BusinessException | DaoException e) {&#10;        throw new BusinessException(ConstMetier.ERROR_SAVE + $Classe$.class.getSimpleName(), e);&#10;    }&#10;}&#10;&#10;@Override&#10;public List&lt;$Classe$&gt; findAll$Classe$() throws BusinessException {&#10;    try {&#10;        return Collections.unmodifiableList(CoUtils.iterableToList(dao$Classe$.findAll()));&#10;    } catch (DaoException e) {&#10;        throw new BusinessException(ConstMetier.DATABASE_ACCESS, e);&#10;    }&#10;}&#10;&#10;@Override&#10;public void delete$Classe$($Classe$ supprime$Classe$) throws BusinessException {&#10;    try {&#10;        if (null == supprime$Classe$){&#10;            throw new BusinessException($Classe$.class.getSimpleName() + ConstMetier.ERROR_NULL);&#10;        }&#10;        dao$Classe$.delete(supprime$Classe$.getId());&#10;    } catch (BusinessException | DaoException e) {&#10;        throw new BusinessException(ConstMetier.ERROR_DELETE + $Classe$.class.getSimpleName(), e);&#10;    }&#10;}&#10;&#10;@Override&#10;public void delete$Classe$(Long id$Classe$) throws BusinessException {&#10;    try {&#10;        if (null == id$Classe$){&#10;            throw new BusinessException(&quot;l'id du &quot; + $Classe$.class.getSimpleName() + ConstMetier.ERROR_NULL);&#10;        }&#10;        dao$Classe$.delete(id$Classe$);&#10;    } catch (BusinessException | DaoException e) {&#10;        throw new BusinessException(ConstMetier.ERROR_DELETE + $Classe$.class.getSimpleName(), e);&#10;    }&#10;}" description="facade objet method" toReformat="false" toShortenFQNames="true">
+    <variable name="Classe" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="jpaString" value="//LBK&#10;@Getter   @Setter&#10;//BV&#10;@NotNull(message = &quot;$article$ $nom_textuel$ doit être référencé&quot;)&#10;@NotBlank(message = &quot;$article$ $nom_textuel$ ne doit pas être vide&quot;)&#10;@Size(min = 1, max = $max$, message = &quot;la taille du $nom_textuel$ n'est pas valide&quot;)&#10;//JPA&#10;@Column(name = &quot;$var_name$&quot;, length = $max$, nullable = false, unique = false)&#10;private String $var_name$;" description="tout le bordel pour les strings" toReformat="false" toShortenFQNames="true">
+    <variable name="article" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="nom_textuel" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="max" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="var_name" expression="camelCase(nom_textuel)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="foreach" value="for($Class$ $item$ : $list$){&#10;    &#10;}" description="foreach" toReformat="false" toShortenFQNames="true">
+    <variable name="Class" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="item" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="list" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="jpaEnum" value="//LBK&#10;@Getter   @Setter&#10;//BV&#10;@NotNull(message = &quot;$article$ $nom_textuel$ doit être référencé&quot;)&#10;//JPA&#10;@Column(name = &quot;$var_name$&quot;, length = 50, nullable = false, unique = false)&#10;@Enumerated(value = EnumType.STRING)&#10;private $enum$ $var_name$;" description="tout le bordel pour les enums" toReformat="false" toShortenFQNames="true">
+    <variable name="article" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="nom_textuel" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="enum" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="var_name" expression="camelCase(nom_textuel)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="jpaManyToMany" value="//JPA&#10;@ManyToMany(fetch = FetchType.LAZY)&#10;@JoinTable(name = &quot;$cetteTable$_$autreTable$&quot;,&#10;      joinColumns = @JoinColumn(name = &quot;$cetteTable$_id&quot;, referencedColumnName = &quot;id&quot;, foreignKey = @ForeignKey(name = &quot;fk__$cetteTable$_$autreTable$__$cetteTable$_id&quot;)),&#10;      inverseJoinColumns = @JoinColumn(name = &quot;$autreTable$_id&quot;, referencedColumnName = &quot;id&quot;, foreignKey = @ForeignKey(name = &quot;fk__$cetteTable$_$autreTable$__$autreTable$_id&quot;)))&#10;private final $typeCollection$&lt;$Class$&gt; $nomCollection$ = new $init_collection$&lt;&gt;();&#10;&#10;public void ajouter$Class$($Class$ add$Class$) throws $ClassMere$Exception {&#10;    if(null == add$Class$){&#10;        throw new $ClassMere$Exception($Class$.class.getSimpleName() + &quot; doit être référencé&quot;);&#10;    }&#10;    if(this.$nomCollection$.contains(add$Class$)){&#10;        throw new $ClassMere$Exception($Class$.class.getSimpleName() + &quot; : existe déjà dans la liste des $Class$ du $ClassMere$&quot;);&#10;    }&#10;    this.$nomCollection$.add(add$Class$);&#10;}&#10;&#10;public void supprimer$Class$($Class$ del$Class$) throws $ClassMere$Exception {&#10;    if(null == del$Class$){&#10;        throw new $ClassMere$Exception($Class$.class.getSimpleName() + &quot; doit être référencé&quot;);&#10;    }&#10;    if(!this.$nomCollection$.contains(del$Class$)){&#10;        throw new $ClassMere$Exception($Class$.class.getSimpleName() + &quot; : n'existe pas dans la liste des $Class$ du $ClassMere$&quot;);&#10;    }&#10;    this.$nomCollection$.remove(del$Class$);&#10;}" description="tout le bordel pour les listes et sets (many to many)" toReformat="false" toShortenFQNames="true">
+    <variable name="cetteTable" expression="decapitalize(className())" defaultValue="" alwaysStopAt="false" />
+    <variable name="autreTable" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="typeCollection" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="nomCollection" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="init_collection" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="Class" expression="capitalize(autreTable)" defaultValue="" alwaysStopAt="false" />
+    <variable name="ClassMere" expression="className()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="jpaOneToMany" value="//BV&#10;@Size(min = $min$, message = &quot;$thisClass$ doit avoir au moins $min$ $Class$&quot;)&#10;//JPA&#10;@OneToMany(fetch = FetchType.LAZY)&#10;@JoinColumn(name = &quot;$cetteTable$_id&quot;, referencedColumnName = &quot;id&quot;, foreignKey = @ForeignKey(name = &quot;fk__$autreTable$__$cetteTable$_id&quot;))&#10;private final $typeCollection$&lt;$Class$&gt; $nomCollection$ = new $init_collection$&lt;&gt;();&#10;&#10;public void ajouter$Class$($Class$ add$Class$) throws $thisClass$Exception {&#10;    if(null == add$Class$){&#10;        throw new $thisClass$Exception($Class$.class.getSimpleName() + &quot; doit être référencé&quot;);&#10;    }&#10;    if(this.$nomCollection$.contains(add$Class$)){&#10;        throw new $thisClass$Exception($Class$.class.getSimpleName() + &quot; : existe déjà dans la liste des $Class$ du $thisClass$&quot;);&#10;    }&#10;    this.$nomCollection$.add(add$Class$);&#10;}&#10;&#10;public void supprimer$Class$($Class$ del$Class$) throws $thisClass$Exception {&#10;    if(null == del$Class$){&#10;        throw new $thisClass$Exception($Class$.class.getSimpleName() + &quot; doit être référencé&quot;);&#10;    }&#10;    if(!this.$nomCollection$.contains(del$Class$)){&#10;        throw new $thisClass$Exception($Class$.class.getSimpleName() + &quot; : n'existe pas dans la liste des $Class$ du $thisClass$&quot;);&#10;    }&#10;    this.$nomCollection$.remove(del$Class$);&#10;}" description="tout le bordel pour les listes et sets(one to many)" toReformat="false" toShortenFQNames="true">
+    <variable name="min" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="cetteTable" expression="decapitalize(className())" defaultValue="" alwaysStopAt="false" />
+    <variable name="autreTable" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="typeCollection" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="Class" expression="capitalize(camelCase(autreTable))" defaultValue="" alwaysStopAt="false" />
+    <variable name="nomCollection" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="init_collection" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="thisClass" expression="className()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="jpaMap" value="@ElementCollection(fetch = FetchType.LAZY)&#10;@CollectionTable(name=&quot;$cetteTable$_$autreTable$&quot;,&#10;      joinColumns=@JoinColumn(name = &quot;$cetteTable$_id&quot;, foreignKey = @ForeignKey(name = &quot;fk__$cetteTable$_$autreTable$__$cetteTable$_id&quot;)))&#10;@MapKeyJoinColumn(name=&quot;$autreTable$_id&quot;, nullable = false, foreignKey =  @ForeignKey(name = &quot;fk__$cetteTable$_$autreTable$__$autreTable$_id&quot;))&#10;@Column(name=&quot;$var_name$&quot;, nullable = false, unique = false)&#10;private final Map&lt;$Class$, $Value$&gt; $nomCollection$ = new HashMap&lt;&gt;();&#10;&#10;public void ajouter$Class$($Class$ add$Class$, $Value$ $value_name$) throws $ClassMere$Exception {&#10;    if(null == add$Class$){&#10;        throw new $ClassMere$Exception($Class$.class.getSimpleName() + &quot; doit être référencé&quot;);&#10;    }&#10;    if(null == $value_name$){&#10;        throw new $ClassMere$Exception(&quot;$value_name$ doit être référencé&quot;);&#10;    }&#10;    this.$nomCollection$.put(add$Class$, $value_name$ + this.$nomCollection$.get(add$Class$));&#10;}&#10;&#10;public void supprimer$Class$($Class$ del$Class$) throws $ClassMere$Exception {&#10;    if(null == del$Class$){&#10;        throw new $ClassMere$Exception($Class$.class.getSimpleName() + &quot; doit être référencé&quot;);&#10;    }&#10;    if(!this.$nomCollection$.containsKey(del$Class$)){&#10;        throw new $ClassMere$Exception($Class$.class.getSimpleName() + &quot; : n'existe pas dans la liste $nomCollection$ du $ClassMere$&quot;);&#10;    }&#10;    this.$nomCollection$.remove(del$Class$);&#10;}" description="tout le bordel pour les maps" toReformat="false" toShortenFQNames="true">
+    <variable name="cetteTable" expression="decapitalize(className())" defaultValue="" alwaysStopAt="false" />
+    <variable name="autreTable" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="var_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="Class" expression="capitalize(autreTable)" defaultValue="" alwaysStopAt="false" />
+    <variable name="Value" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="value_name" expression="camelCase(var_name)" defaultValue="" alwaysStopAt="false" />
+    <variable name="ClassMere" expression="className()" defaultValue="" alwaysStopAt="false" />
+    <variable name="nomCollection" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="jpaDate" value="//LBK&#10;@Getter   @Setter&#10;//BV&#10;@NotNull(message = &quot;$article$ $nom_textuel$ doit être référencé&quot;)&#10;@PastOrPresent(message = &quot;$article$ $nom_textuel$ ne doit pas être dans le futur&quot;)&#10;@Past(message = &quot;$article$ $nom_textuel$ doit être dans le passé&quot;)&#10;@Future(message = &quot;$article$ $nom_textuel$ doit être dans le futur&quot;)&#10;@FutureOrPresent(message = &quot;$article$ $nom_textuel$ ne doit pas être dans le passé&quot;)&#10;//JPA&#10;@Column(name = &quot;$var_name$&quot;, nullable = false, unique = false)&#10;private LocalDate $var_name$;" description="tout le bordel pour les LocalDate" toReformat="false" toShortenFQNames="true">
+    <variable name="article" expression="" defaultValue="le" alwaysStopAt="true" />
+    <variable name="nom_textuel" expression="" defaultValue="nom_textuel" alwaysStopAt="true" />
+    <variable name="var_name" expression="camelCase(nom_textuel)" defaultValue="var_name" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="factoEntity" value="public static $Class$ fabriquer$Class$(/*TODO : a faire*/) throws EntitiesFactoryException {&#10;    $Class$ $var_name$ = new $Class$();&#10;    /*TODO : setters à faire*/&#10;&#10;    try {&#10;        ValidatorUtils.refactorException($var_name$);&#10;    }catch (ValidationException e){&#10;        throw new EntitiesFactoryException(e.getMessage());&#10;    }&#10;&#10;    return $var_name$;&#10;}" description="EntitiesFactory méthode fabriquerEntity()" toReformat="false" toShortenFQNames="true">
+    <variable name="Class" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="var_name" expression="decapitalize(Class)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="jpaClass" value="import lombok.*;&#10;import javax.persistence.*;&#10;import javax.validation.constraints.*;&#10;&#10;//TODO faire ces 3 lignes :&#10;a // columnNames = {&quot;&quot;} | @EqualsAndHashCode(of = {&quot;&quot;} | @ToString(of = {&quot;&quot;}&#10;@Entity&#10;@Table(name = &quot;$var_name$&quot;, uniqueConstraints = @UniqueConstraint(columnNames = {&quot;&quot;}, name = &quot;uk__$var_name$&quot;))&#10;@EqualsAndHashCode(of = {&quot;&quot;}, callSuper = false)&#10;@ToString(of = {&quot;&quot;}, callSuper = true)&#10;@NoArgsConstructor(access = AccessLevel.PROTECTED)" description="template pour les imports et toutes les annotations de classe jpa &amp; lombok" toReformat="false" toShortenFQNames="true">
+    <variable name="var_name" expression="decapitalize(className())" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="factoDao" value="@Getter&#10;private static final IDao$Class$ dao$Class$;&#10;&#10;static {&#10;    dao$Class$ = new $Class$DaoJpaImpl();&#10;}" description="DaoFactory méthode getDaoEntity()" toReformat="false" toShortenFQNames="true">
+    <variable name="Class" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="initCreateAndSave" value="private $class$ createAndSave$class$() {&#10;    try {&#10;        // récupère l'instance stocké en BDD si elle existe déjà, ou la crée si elle n'existe pas.&#10;        $class$ $var_name$ = dao$class$.find$class$ByIdentity()&#10;                .orElse(EntitiesFactory.fabriquer$class$());&#10;        &#10;        return dao$class$.save($var_name$);&#10;    } catch (EntitiesFactoryException | DaoException e) {&#10;        throw new BusinessException(e);&#10;    }&#10;}" description="code pour create and save des initialisations" toReformat="false" toShortenFQNames="true">
+    <variable name="class" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="var_name" expression="decapitalize(class)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="queryMaker" value="try {&#10;    TypedQuery&lt;$returnClass$&gt; query = this.em.createQuery(&quot;&quot;&quot;&#10;                    SELECT t&#10;                    FROM $returnClass$ t&#10;                    WHERE t.$attribut$ = :$var1Name$&quot;&quot;&quot;&#10;            , $returnClass$.class);&#10;    query.setParameter(&quot;$var1Name$&quot;, $var1$);&#10;    &#10;    &#10;    query.setMaxResults(1);&#10;    return Optional.ofNullable(query.getSingleResult()); &#10;&#10;    return query.getResultList();&#10;} catch (IllegalArgumentException e) {&#10;    throw new DaoException(e);&#10;}" description="template de fonction query jpql" toReformat="false" toShortenFQNames="true">
+    <variable name="returnClass" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="attribut" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="var1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="var1Name" expression="decapitalize(var1)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="jpaManyToOne" value="//LBK&#10;@Getter   @Setter&#10;//BV&#10;@NotNull(message = &quot;$article$ $nom_textuel$ doit être référencé&quot;)&#10;//JPA&#10;@ManyToOne(fetch = FetchType.LAZY)&#10;@JoinColumn(name = &quot;$var_name$_id&quot;, referencedColumnName = &quot;id&quot;, foreignKey = @ForeignKey(name = &quot;fk__$cetteTable$_$var_name$__$var_name$_id&quot;))&#10;private $class$ $var_name$;" description="tout le bordel pour les attributs Class" toReformat="false" toShortenFQNames="true">
+    <variable name="article" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="nom_textuel" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="var_name" expression="camelCase(nom_textuel)" defaultValue="" alwaysStopAt="false" />
+    <variable name="cetteTable" expression="decapitalize(className())" defaultValue="" alwaysStopAt="false" />
+    <variable name="class" expression="capitalize(var_name)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+</templateSet>

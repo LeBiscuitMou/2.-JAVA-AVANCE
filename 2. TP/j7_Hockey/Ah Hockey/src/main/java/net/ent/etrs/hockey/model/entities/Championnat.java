@@ -44,12 +44,12 @@ public class Championnat extends AbstractEntity {
 
     //JPA
     @OneToMany()
-    @JoinColumn(name = "championnat_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk__equipe__championnat_id"))
+    @JoinColumn(name = "championnat_id_e", referencedColumnName = "id_e", foreignKey = @ForeignKey(name = "fk__equipe__championnat_id"))
     private Set<Equipe> classement = new TreeSet<>(new EquipePointComparator());
 
     //JPA
     @OneToMany()
-    @JoinColumn(name = "championnat_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk__match__championnat_id"))
+    @JoinColumn(name = "championnat_id_m", referencedColumnName = "id_m", foreignKey = @ForeignKey(name = "fk__match__championnat_id"))
     private Set<Match> lesMatchs = new HashSet<>();
 
     public Set<Equipe> getclassement() {

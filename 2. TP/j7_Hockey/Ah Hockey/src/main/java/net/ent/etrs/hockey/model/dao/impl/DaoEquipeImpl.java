@@ -14,13 +14,15 @@ public class DaoEquipeImpl extends AbstractJpaDao<Equipe, Long> implements IDaoE
     public Set<Equipe> findAllByYearAndName(Integer annee, String nomChampionnat) {
         TypedQuery<Equipe> tp = this.em.createQuery(
                 "SELECT e FROM Equipe e " +
-                        "WHERE e.nom = :nom " +
-                        "AND e.", Equipe.class);
+                        "WHERE e.nom = :nom "
+                        , Equipe.class);
+
+        return null;
     }
 
     @Override
     public Equipe findBestEquipeByYearAndName(Integer annee, String nomChampionnat) {
-
+        return null;
     }
 
     @Override
@@ -34,6 +36,6 @@ public class DaoEquipeImpl extends AbstractJpaDao<Equipe, Long> implements IDaoE
 
     @Override
     public Map<Equipe, Joueur> findBestJoueurByTeamForYearAndName(Integer annee, String nomChampionnat) {
-
+        return null;
     }
 }
