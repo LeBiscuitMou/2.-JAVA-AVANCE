@@ -6,7 +6,6 @@ import net.ent.etrs.hockey.model.entities.Equipe;
 import net.ent.etrs.hockey.model.entities.Joueur;
 
 import javax.persistence.TypedQuery;
-import java.io.Serializable;
 import java.util.Map;
 import java.util.Set;
 
