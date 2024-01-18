@@ -10,10 +10,10 @@ import java.util.Map;
 import java.util.Set;
 
 public class FacadeMetierLeagueImpl implements IFacadeMetierLeague {
-    private IDaoPersonnage daoExemple;
+    private IDaoPersonnage daoPersonnage;
 
     protected FacadeMetierLeagueImpl() {
-        daoExemple = DaoFactory.getDaoExemple();
+        daoPersonnage = DaoFactory.getDaoPersonnage();
     }
 
     /**
