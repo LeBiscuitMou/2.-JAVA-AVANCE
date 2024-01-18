@@ -17,7 +17,7 @@ public class Presenteur {
         facadeChargementFichier = FacadeFactory.fabriquerFacadeChargementFichier();
 
         try {
-            initialisation();
+            facadeChargementFichier.initialisation();
         } catch (Exception e) {
             System.out.println("ERR Init :" + e.getMessage());
         }
