@@ -5,7 +5,7 @@ import net.ent.etrs.jeuVideo.model.entities.AbstractEntity;
 
 import java.util.Optional;
 
-public interface BaseDao<T extends AbstractEntity> {
+public interface BaseDao<T> {
 
     T save(T entity) throws DaoException;
 
@@ -13,10 +13,10 @@ public interface BaseDao<T extends AbstractEntity> {
 
     Iterable<T> findAll() throws DaoException;
 
-    void delete(Long id) throws DaoException;
+    void delete(T id) throws DaoException;
 
     boolean exists(Long id) throws DaoException;
 
-    long count() throws DaoException;
+    Long count() throws DaoException;
 
 }

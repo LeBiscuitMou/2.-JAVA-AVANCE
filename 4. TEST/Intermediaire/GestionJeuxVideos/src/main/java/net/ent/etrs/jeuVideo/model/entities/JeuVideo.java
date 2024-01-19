@@ -48,7 +48,7 @@ public class JeuVideo extends AbstractEntity {
     @NotNull(message = "le fabriquant doit être référencé")
     //JPA
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "studio_dev_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk__jeuVideo__studio_dev__studio_dev_id"))
+    @JoinColumn(name = "studio_dev_id", referencedColumnName = "nom", foreignKey = @ForeignKey(name = "fk__jeu_video__studio_dev__studio_dev_id"))
     private Fabriquant studioDev;
 
     //LBK
@@ -65,7 +65,7 @@ public class JeuVideo extends AbstractEntity {
     @Size(min = 1, message = "JeuVideo doit avoir au moins 1 Console")
     //JPA
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "jeu_video_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk__console__jeuVideo_id"))
+    @JoinColumn(name = "jeu_video_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk__console__jeu_video_id"))
     private Set<Console> plateformes = new TreeSet<>(new ConsoleComparator());
 
     public Set<Console> getPlateformes() {
@@ -78,4 +78,6 @@ public class JeuVideo extends AbstractEntity {
         }
         this.plateformes.add(console);
     }
+
+
 }

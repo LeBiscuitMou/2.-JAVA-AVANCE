@@ -37,7 +37,7 @@ public class Console extends AbstractEntity {
     @NotNull(message = "le fabriquant doit être référencé")
     //JPA
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fabriquant_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk__console_fabriquant__fabriquant_id"))
+    @JoinColumn(name = "fabriquant_id", referencedColumnName = "nom", foreignKey = @ForeignKey(name = "fk__console_fabriquant__fabriquant_id"))
     private Fabriquant fabriquant;
 
     @ElementCollection(fetch = FetchType.LAZY)

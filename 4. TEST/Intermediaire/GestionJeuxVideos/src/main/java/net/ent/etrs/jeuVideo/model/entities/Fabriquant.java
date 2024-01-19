@@ -21,7 +21,7 @@ public class Fabriquant extends AbstractEntity {
     @NotBlank(message = "le nom ne doit pas être vide")
     @Size(min = 5, max = 100, message = "la taille du nom n'est pas valide")
     //JPA
-    @Column(name = "nom", length = 100, nullable = false, unique = true)
+    @Column(name = "nom", length = 100, nullable = false)
     private String nom;
 
     //LBK

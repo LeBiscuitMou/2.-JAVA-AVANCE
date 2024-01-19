@@ -69,7 +69,7 @@ public class FacadeMetierConsoleImpl implements IFacadeMetierConsole {
      */
     @Override
     public Map<Console, List<JeuVideo>> recupererConsoleAvecLeurJeuxVideo() throws BusinessException {
-        return null;
+        return daoConsole.recupererConsoleAvecLeurJeuxVideo();
     }
 
     /**
@@ -81,6 +81,6 @@ public class FacadeMetierConsoleImpl implements IFacadeMetierConsole {
      */
     @Override
     public String recupererDureeMoyenneSortieEntreJeuVideoPourUneConsole(Console console) throws BusinessException {
-        return null;
+        return daoConsole.recupererDureeMoyenneSortieEntreJeuVideoPourUneConsole(console);
     }
 }
