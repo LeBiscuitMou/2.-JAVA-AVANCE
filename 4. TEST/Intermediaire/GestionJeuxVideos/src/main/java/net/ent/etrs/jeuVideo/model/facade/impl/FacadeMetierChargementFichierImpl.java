@@ -57,8 +57,8 @@ public class FacadeMetierChargementFichierImpl implements IFacadeMetierChargemen
 
                     Map<Pays, LocalDate> sortiesConsoles = new HashMap<>();
                     for (int i = 0; i < 3; i++) {
-                        Pays paysConsole = Pays.valueOf(data[5].toUpperCase());
-                        LocalDate dateSortieConsole = LocalDate.parse(data[6], ConstantesMetier.DATE_FORMAT);
+                        Pays paysConsole = Pays.valueOf(data[6].toUpperCase());
+                        LocalDate dateSortieConsole = LocalDate.parse(data[5], ConstantesMetier.DATE_FORMAT);
                         sortiesConsoles.put(paysConsole, dateSortieConsole);
                     }
 

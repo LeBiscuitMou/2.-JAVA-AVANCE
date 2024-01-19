@@ -3,6 +3,7 @@ package net.ent.etrs.jeuVideo.model.dao.base;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.ent.etrs.jeuVideo.model.commons.JpaUtil;
 import net.ent.etrs.jeuVideo.model.dao.exceptions.DaoException;
 import net.ent.etrs.jeuVideo.model.entities.AbstractEntity;
 
@@ -23,6 +24,7 @@ public abstract class JpaBaseDao<T extends AbstractEntity> implements BaseDao<T>
 
     @SuppressWarnings("unchecked")
     public JpaBaseDao() {
+        this.em = JpaUtil.getEm();
         ParameterizedType genericSuperClass = (ParameterizedType) this.getClass().getGenericSuperclass();
         this.entityClass = (Class<T>) genericSuperClass.getActualTypeArguments()[0];
     }

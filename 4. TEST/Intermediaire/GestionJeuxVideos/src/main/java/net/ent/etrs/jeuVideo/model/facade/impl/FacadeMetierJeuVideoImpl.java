@@ -75,6 +75,10 @@ public class FacadeMetierJeuVideoImpl implements IFacadeMetierJeuVideo {
      */
     @Override
     public List<JeuVideo> recupererJeuxVideoDontLeNomCommenceParEtLeFabriquantEstDeTelPays(String debutNom, Pays paysFabriquant) throws BusinessException {
-        return daoJeuVideo.recupererJeuxVideoDontLeNomCommenceParEtLeFabriquantEstDeTelPays(debutNom, paysFabriquant);
+        try {
+            return daoJeuVideo.recupererJeuxVideoDontLeNomCommenceParEtLeFabriquantEstDeTelPays(debutNom, paysFabriquant);
+        } catch (DaoException e) {
+            throw new BusinessException(ConstantesMetier.ERROR_FIND + JeuVideo.class.getSimpleName(), e);
+        }
     }
 }

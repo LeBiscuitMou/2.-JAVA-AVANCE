@@ -10,9 +10,6 @@ import javax.persistence.Query;
 public class DaoConsoleImpl extends JpaBaseDao<Console> implements IDaoConsole {
     @Override
     public Console recupererLaConsoleDontLaSortieEstlaPlusAnciennePourUnPays(Pays pays) {
-        Query query = this.em.createNativeQuery(
-                """
-                        
-                        """);
+        return null;
     }
 }

@@ -1,7 +1,0 @@
-Il faut que la classe qui compose le set implémente Comparable.
-
-Transforme un itérable en TreeSet (SortedSet)
-    return new TreeSet<>(CoUtils.iterableToSet(super.findAll()));
-
-Récupère le résultat d'une query en le transformant en SortedSet
-    return query.getResultStream().collect(Collectors.toCollection(TreeSet::new));
