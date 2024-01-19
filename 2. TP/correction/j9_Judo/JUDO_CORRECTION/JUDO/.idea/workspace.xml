@@ -5,73 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e498856-9b1b-4b5d-82dc-4ff0d982eac8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/src/main/java/net/ent/etrs/squelette/model/dao/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/src/main/java/net/ent/etrs/squelette/model/dao/impl/DaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/src/main/java/net/ent/etrs/squelette/model/dao/IDaoExemple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/src/main/java/net/ent/etrs/squelette/model/dao/impl/DaoExempleImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/src/main/java/net/ent/etrs/squelette/model/entities/Exemple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/src/main/java/net/ent/etrs/squelette/model/facade/IFacadeMetierExemple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/src/main/java/net/ent/etrs/squelette/model/facade/impl/FacadeMetierExempleImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/src/main/java/net/ent/etrs/squelette/model/facade/impl/FacadeMetierFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvance/src/main/java/net/ent/etrs/squelette/model/facade/impl/FacadeMetierFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/commons/CoUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/commons/FieldUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/commons/ValidatorUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/dao/BaseDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/dao/IDaoExemple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/dao/exceptions/DaoException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/dao/impl/DaoFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/dao/impl/ExempleDaoJpaImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/dao/impl/JpaBaseDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/dao/utils/JpaUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/entities/AbstractEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/entities/EntitiesFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/entities/Exemple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/exceptions/BusinessException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/exceptions/EntitiesFactoryException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/facades/FacadeMetier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/facades/impl/FacadeChargementFichierImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/facades/impl/FacadeExempleImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/facades/impl/FacadeMetierFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/facades/impl/FacadeMetierImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/facades/impl/GenericFacadeImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/facades/interfaces/FacadeChargementFichier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/facades/interfaces/FacadeExemple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/facades/interfaces/GenericFacade.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/models/references/ConstMetier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/java/net/ent/etrs/projet/start/Lanceur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/resources/errorLog.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/resources/exemple/JPA_SQL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../0. Ressources/SqueletteJavaAvanceVK/src/main/resources/exemple/treeSet.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/A fournir/~$VA Avancé PoE League.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/dao/IDaoChallenge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/dao/IDaoChallenge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/dao/impl/DaoChallengeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/dao/impl/DaoChallengeImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/IFacadeMetierChallenge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/IFacadeMetierChallenge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/IFacadeMetierPersonnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/IFacadeMetierPersonnage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/impl/FacadeMetierChallengeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/impl/FacadeMetierChallengeImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/impl/FacadeMetierFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/impl/FacadeMetierFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/impl/FacadeMetierLeagueImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/impl/FacadeMetierLeagueImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/impl/FacadeMetierPersonnageImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/model/facade/impl/FacadeMetierPersonnageImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/presenteur/Presenteur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/presenteur/PresenteurFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/start/Lanceur.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../j6_PoE_League_Avance/League/src/main/java/net/ent/etrs/league/start/Lanceur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/dao/impl/DaoJeuVideoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/dao/impl/DaoJeuVideoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/facade/impl/FacadeMetierChargementFichierImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/facade/impl/FacadeMetierChargementFichierImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/facade/impl/FacadeMetierConsoleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/facade/impl/FacadeMetierConsoleImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,30 +39,30 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/UV_3/2. JAVA AVANCE/2. TP/correction/j9_Judo/JUDO_CORRECTION/JUDO&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/UV_3/2. JAVA AVANCE/2. TP/correction/j8_ConsoElecGaz/Correction/ConsoElecGaz",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -140,6 +76,7 @@
       <workItem from="1705310868829" duration="112000" />
       <workItem from="1705483676346" duration="24000" />
       <workItem from="1705604510149" duration="442000" />
+      <workItem from="1705653588452" duration="22000" />
     </task>
     <servers />
   </component>

@@ -1,13 +1,17 @@
 package net.ent.etrs.jeuVideo.model.facade.impl;
 
 import net.ent.etrs.jeuVideo.model.dao.IDaoConsole;
+import net.ent.etrs.jeuVideo.model.dao.exceptions.DaoException;
 import net.ent.etrs.jeuVideo.model.dao.impl.DaoFactory;
 import net.ent.etrs.jeuVideo.model.entities.Console;
 import net.ent.etrs.jeuVideo.model.entities.JeuVideo;
+import net.ent.etrs.jeuVideo.model.entities.references.ConstantesMetier;
 import net.ent.etrs.jeuVideo.model.entities.references.Pays;
 import net.ent.etrs.jeuVideo.model.facade.IFacadeMetierConsole;
 import net.ent.etrs.jeuVideo.model.facade.exceptions.BusinessException;
+import org.apache.commons.collections4.IterableUtils;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +30,11 @@ public class FacadeMetierConsoleImpl implements IFacadeMetierConsole {
      */
     @Override
     public Console sauvegarderConsole(Console console) throws BusinessException {
-        return null;
+        try {
+            return daoConsole.save(console);
+        } catch (DaoException e) {
+            throw new BusinessException(ConstantesMetier.ERROR_SAVE + Console.class.getSimpleName(), e);
+        }
     }
 
     /**
@@ -36,7 +44,11 @@ public class FacadeMetierConsoleImpl implements IFacadeMetierConsole {
      */
     @Override
     public List<Console> recupererlesConsoles() throws BusinessException {
-        return null;
+        try {
+            return Collections.unmodifiableList(IterableUtils.toList(daoConsole.findAll()));
+        } catch (DaoException e) {
+            throw new BusinessException(ConstantesMetier.ERROR_SAVE + Console.class.getSimpleName(), e);
+        }
     }
 
     /**
@@ -47,7 +59,7 @@ public class FacadeMetierConsoleImpl implements IFacadeMetierConsole {
      */
     @Override
     public Console recupererLaConsoleDontLaSortieEstlaPlusAnciennePourUnPays(Pays pays) throws BusinessException {
-        return null;
+        return daoConsole.recupererLaConsoleDontLaSortieEstlaPlusAnciennePourUnPays(pays);
     }
 
     /**

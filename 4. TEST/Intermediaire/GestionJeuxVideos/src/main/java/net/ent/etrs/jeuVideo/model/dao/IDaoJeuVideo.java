@@ -12,5 +12,5 @@ public interface IDaoJeuVideo extends BaseDao<JeuVideo> {
 
     List<JeuVideo> findAllGamesByGenre(Genre genre) throws DaoException;
 
-    List<JeuVideo> recupererJeuxVideoDontLeNomCommenceParEtLeFabriquantEstDeTelPays(String debutNom, Pays paysFabriquant);
+    List<JeuVideo> recupererJeuxVideoDontLeNomCommenceParEtLeFabriquantEstDeTelPays(String debutNom, Pays paysFabriquant) throws DaoException;
 }
