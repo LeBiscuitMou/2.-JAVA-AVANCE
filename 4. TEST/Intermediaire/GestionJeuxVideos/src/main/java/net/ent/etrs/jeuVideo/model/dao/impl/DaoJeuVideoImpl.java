@@ -15,10 +15,12 @@ public class DaoJeuVideoImpl extends JpaBaseDao<JeuVideo> implements IDaoJeuVide
     @Override
     public List<JeuVideo> findAllGamesByGenre(Genre genre) throws DaoException {
         try {
-            TypedQuery<JeuVideo> query = this.em.createQuery("""
+            TypedQuery<JeuVideo> query = this.em.createQuery(
+                            """
                             SELECT j
                             FROM JeuVideo j
-                            WHERE j.genre = :genre"""
+                            WHERE j.genre = :genre
+                            """
                     , JeuVideo.class);
             query.setParameter("genre", genre);
 
