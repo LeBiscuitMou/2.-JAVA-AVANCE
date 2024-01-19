@@ -1,0 +1,32 @@
+package net.ent.etrs.jeuVideo.model.entities.references;
+
+public enum Genre {
+    ACTION,
+    AVENTURE,
+    BATTLE_ROYALE,
+    BEAT_THEM_ALL,
+    COMBAT,
+    COURSE,
+    GESTION,
+    GTA_LIKE,
+    GUERRE,
+    INFILTRATION,
+    JDR,
+    LIGUE_FANTAISIE,
+    MMO,
+    MMORPG,
+    MOBA,
+    PLATES_FORMES,
+    REFLEXION,
+    ROGUE_LIKE,
+    RYTHME,
+    SANDBOX,
+    SHOOT_THEM_UP,
+    SIMULATION,
+    SPORT,
+    STRATEGIE,
+    STRATEGIE_EN_TEMPS_REEL,
+    SURVIVAL,
+    TPS,
+    FPS
+}
