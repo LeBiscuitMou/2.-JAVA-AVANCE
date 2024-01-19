@@ -12,7 +12,7 @@ public class JpaUtil {
     private static EntityManager em;
     
     static {
-        JpaUtil.em = Persistence.createEntityManagerFactory("...").createEntityManager(); // Remplacer les ... par le nom du persistance unit
+        JpaUtil.em = Persistence.createEntityManagerFactory("pu-jv").createEntityManager(); // Remplacer les ... par le nom du persistance unit
     }
     
     public static EntityManager getEm() {
