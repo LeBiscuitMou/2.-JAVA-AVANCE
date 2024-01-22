@@ -62,7 +62,7 @@ public class FacadeMetierJeuVideoImpl implements IFacadeMetierJeuVideo {
         try {
             return daoJeuVideo.findAllGamesByGenre(genre);
         } catch (DaoException e) {
-            throw new BusinessException(ConstantesMetier.ERROR_FIND + JeuVideo.class.getSimpleName(), e);
+            throw new BusinessException(e.getMessage(), e);
         }
     }
 
@@ -78,7 +78,7 @@ public class FacadeMetierJeuVideoImpl implements IFacadeMetierJeuVideo {
         try {
             return daoJeuVideo.recupererJeuxVideoDontLeNomCommenceParEtLeFabriquantEstDeTelPays(debutNom, paysFabriquant);
         } catch (DaoException e) {
-            throw new BusinessException(ConstantesMetier.ERROR_FIND + JeuVideo.class.getSimpleName(), e);
+            throw new BusinessException(e.getMessage(), e);
         }
     }
 }

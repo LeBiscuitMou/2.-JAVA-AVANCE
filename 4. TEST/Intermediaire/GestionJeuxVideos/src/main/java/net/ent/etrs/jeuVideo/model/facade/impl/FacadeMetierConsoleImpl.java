@@ -47,7 +47,7 @@ public class FacadeMetierConsoleImpl implements IFacadeMetierConsole {
         try {
             return Collections.unmodifiableList(IterableUtils.toList(daoConsole.findAll()));
         } catch (DaoException e) {
-            throw new BusinessException(ConstantesMetier.ERROR_SAVE + Console.class.getSimpleName(), e);
+            throw new BusinessException(ConstantesMetier.ERROR_FIND + Console.class.getSimpleName(), e);
         }
     }
 
@@ -59,7 +59,11 @@ public class FacadeMetierConsoleImpl implements IFacadeMetierConsole {
      */
     @Override
     public Console recupererLaConsoleDontLaSortieEstlaPlusAnciennePourUnPays(Pays pays) throws BusinessException {
-        return daoConsole.recupererLaConsoleDontLaSortieEstlaPlusAnciennePourUnPays(pays);
+        try {
+            return daoConsole.recupererLaConsoleDontLaSortieEstlaPlusAnciennePourUnPays(pays);
+        } catch (DaoException e) {
+            throw new BusinessException(e.getMessage(), e);
+        }
     }
 
     /**
@@ -69,7 +73,11 @@ public class FacadeMetierConsoleImpl implements IFacadeMetierConsole {
      */
     @Override
     public Map<Console, List<JeuVideo>> recupererConsoleAvecLeurJeuxVideo() throws BusinessException {
-        return daoConsole.recupererConsoleAvecLeurJeuxVideo();
+        try {
+            return daoConsole.recupererConsoleAvecLeurJeuxVideo();
+        } catch (DaoException e) {
+            throw new BusinessException(e.getMessage(), e);
+        }
     }
 
     /**
