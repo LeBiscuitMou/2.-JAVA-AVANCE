@@ -39,7 +39,11 @@ public class TestController {
 
     @FXML
     public void click() throws IOException {
-        if (nomTextField.getText().isBlank() || prenomTextField.getText().isBlank() || Objects.isNull(datePickerNaissance.getValue())) {
+        if (null == nomTextField || null == prenomTextField || null == datePickerNaissance ||
+            null == nomTextField.getText() || null == prenomTextField.getText() || null == datePickerNaissance.getValue() ||
+            nomTextField.getText().isBlank() || prenomTextField.getText().isBlank() || null == datePickerNaissance.getValue()) {
+
+            System.out.println("NULL");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Il faut saisir toutes les informations !");
             alert.showAndWait().ifPresent(rs -> {
@@ -47,6 +51,7 @@ public class TestController {
                     System.out.println("Pressed OK.");
                 }
             });
+            
         } else {
             this.personne.setNom(nomTextField.getText());
             this.personne.setPrenom(prenomTextField.getText());

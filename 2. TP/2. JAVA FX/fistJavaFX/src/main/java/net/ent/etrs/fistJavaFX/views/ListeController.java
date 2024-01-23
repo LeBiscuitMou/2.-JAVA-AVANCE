@@ -5,9 +5,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.TilePane;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import lombok.Getter;
 import net.ent.etrs.fistJavaFX.models.Personne;
 import net.ent.etrs.fistJavaFX.start.Lanceur;
@@ -43,6 +44,30 @@ public class ListeController {
         tblColNom.setCellValueFactory((p) -> new SimpleStringProperty(p.getValue().getNom()));
         tblColPrenom.setCellValueFactory((p) -> new SimpleStringProperty(p.getValue().getPrenom()));
         tblColDateNaissance.setCellValueFactory((p) -> new SimpleObjectProperty<>(p.getValue().getDateDeNaissance()));
+
+        MenuItem menuItemModifier = new MenuItem("Modifier");
+        MenuItem menuItemSupprimer = new MenuItem("Supprimer");
+
+        menuItemModifier.setOnAction(event -> {
+            try {
+                modifierPersonne();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        menuItemSupprimer.setOnAction(event -> supprimerPersonne());
+
+        ContextMenu contextMenu = new ContextMenu();
+        contextMenu.getItems().addAll(menuItemModifier, menuItemSupprimer);
+
+        tblViewSuperListe.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (Objects.nonNull(newValue)) {
+                tblViewSuperListe.setContextMenu(contextMenu);
+            } else {
+                tblViewSuperListe.setContextMenu(null);
+            }
+        });
     }
 
     public void goToFiche() throws IOException {
