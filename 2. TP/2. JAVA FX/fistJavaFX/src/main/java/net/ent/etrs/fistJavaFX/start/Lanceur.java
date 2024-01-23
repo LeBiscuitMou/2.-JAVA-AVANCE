@@ -9,11 +9,13 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
+import lombok.Getter;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class Lanceur extends Application {
+    @Getter
     private static Scene scene;
     /**
      * The main entry point for all JavaFX applications.

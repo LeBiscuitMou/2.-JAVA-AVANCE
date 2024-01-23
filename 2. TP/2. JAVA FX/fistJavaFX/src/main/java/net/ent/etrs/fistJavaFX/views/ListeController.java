@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
@@ -48,6 +49,32 @@ public class ListeController {
         MenuItem menuItemModifier = new MenuItem("Modifier");
         MenuItem menuItemSupprimer = new MenuItem("Supprimer");
 
+        ContextMenu contextMenu = new ContextMenu();
+        contextMenu.getItems().addAll(menuItemModifier, menuItemSupprimer);
+
+        tblViewSuperListe.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (Objects.nonNull(newValue)) {
+                Scene scene = tblViewSuperListe.getScene();
+                tblViewSuperListe.setContextMenu(contextMenu);
+
+                // Écouteur pour le clic n'importe où dans la scène
+                scene.setOnMouseClicked(event -> {
+                    // Vérifier si le clic ne s'est pas produit à l'intérieur du TableView
+                    if (!tblViewSuperListe.getBoundsInParent().contains(event.getX(), event.getY())) {
+                        tblViewSuperListe.getSelectionModel().clearSelection();
+                    }
+                });
+
+                // Écouteur pour le clic à l'intérieur du TableView
+                tblViewSuperListe.setOnMouseClicked(event -> {
+                    // Désélectionner l'élément actuel lors d'un deuxième clic
+                    if ((event.getClickCount() == 2 && tblViewSuperListe.getSelectionModel().getSelectedItem() != null)) {
+                        tblViewSuperListe.getSelectionModel().clearSelection();
+                    }
+                });
+            }
+        });
+
         menuItemModifier.setOnAction(event -> {
             try {
                 modifierPersonne();
@@ -57,17 +84,6 @@ public class ListeController {
         });
 
         menuItemSupprimer.setOnAction(event -> supprimerPersonne());
-
-        ContextMenu contextMenu = new ContextMenu();
-        contextMenu.getItems().addAll(menuItemModifier, menuItemSupprimer);
-
-        tblViewSuperListe.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (Objects.nonNull(newValue)) {
-                tblViewSuperListe.setContextMenu(contextMenu);
-            } else {
-                tblViewSuperListe.setContextMenu(null);
-            }
-        });
     }
 
     public void goToFiche() throws IOException {
