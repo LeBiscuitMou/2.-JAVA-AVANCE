@@ -51,7 +51,7 @@ public class TestController {
                     System.out.println("Pressed OK.");
                 }
             });
-            
+
         } else {
             this.personne.setNom(nomTextField.getText());
             this.personne.setPrenom(prenomTextField.getText());
