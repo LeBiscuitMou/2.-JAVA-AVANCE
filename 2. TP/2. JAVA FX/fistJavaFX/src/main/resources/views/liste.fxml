@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ent.etrs.fistJavaFX.views.ListeController">
+   <Label layoutX="256.0" layoutY="21.0" text="Ma super liste" />
+   <Button fx:id="btnCreerPersonne" layoutX="53.0" layoutY="354.0" mnemonicParsing="false" onAction="#goToFiche" text="Créer personne" />
+   <TableView fx:id="tblViewSuperListe" layoutX="53.0" layoutY="72.0" prefHeight="256.0" prefWidth="481.0">
+      <columns>
+         <TableColumn fx:id="tblColPrenom" prefWidth="131.0" text="Prénom" />
+         <TableColumn fx:id="tblColNom" minWidth="0.0" prefWidth="136.0" text="Nom" />
+         <TableColumn fx:id="tblColDateNaissance" minWidth="0.0" prefWidth="209.0" text="Date de naissance" />
+      </columns>
+      <contextMenu>
+         <ContextMenu fx:id="contextMenuTableView">
+           <items>
+             <MenuItem fx:id="menuItemModifier" mnemonicParsing="false" text="Modifier" />
+               <MenuItem mnemonicParsing="false" text="Supprimer" />
+           </items>
+         </ContextMenu>
+      </contextMenu>
+   </TableView>
+   <Button fx:id="btnSupprimerPersonne" layoutX="238.0" layoutY="354.0" mnemonicParsing="false" onAction="#supprimerPersonne" text="Supprimer personne" />
+   <Button fx:id="btnModifierPersonne" layoutX="410.0" layoutY="354.0" mnemonicParsing="false" onAction="#modifierPersonne" text="Modifier personne" />
+</AnchorPane>
