@@ -62,6 +62,7 @@ public class CreationAnimalController {
         animal.setTaille(Float.parseFloat(txttaille.getText()));
         animal.setDangerous(chbDangereux.getValue().equals("Oui"));
         animal.setDateNaissance(dtpNaissance.getValue());
+
         ListeAnimalController.getAnimals().remove(animal);
         ListeAnimalController.getAnimals().add(animal);
         Lanceur.loadFXML("ficheListeAnimal");

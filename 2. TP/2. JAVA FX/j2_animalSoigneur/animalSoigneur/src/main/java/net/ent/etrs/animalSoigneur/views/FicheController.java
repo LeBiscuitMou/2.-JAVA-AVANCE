@@ -10,6 +10,7 @@ import java.io.IOException;
 
 @NoArgsConstructor
 public class FicheController {
+    @FXML
     public void cliquerBoutonSoigneur() {
 
     }
