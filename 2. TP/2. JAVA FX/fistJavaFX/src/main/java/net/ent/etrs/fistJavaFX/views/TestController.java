@@ -39,8 +39,7 @@ public class TestController {
 
     @FXML
     public void click() throws IOException {
-        if (null == nomTextField || null == prenomTextField || null == datePickerNaissance ||
-            null == nomTextField.getText() || null == prenomTextField.getText() || null == datePickerNaissance.getValue() ||
+        if (null == nomTextField.getText() || null == prenomTextField.getText() || null == datePickerNaissance.getValue() ||
             nomTextField.getText().isBlank() || prenomTextField.getText().isBlank() || null == datePickerNaissance.getValue()) {
 
             System.out.println("NULL");

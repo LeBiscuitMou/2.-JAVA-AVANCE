@@ -23,6 +23,7 @@ import java.util.Set;
 public class ListeController {
     @Getter
     private static Set<Personne> personnes = new HashSet<>();
+
     @FXML
     public TableView<Personne> tblViewSuperListe;
 
@@ -46,14 +47,19 @@ public class ListeController {
         tblColPrenom.setCellValueFactory((p) -> new SimpleStringProperty(p.getValue().getPrenom()));
         tblColDateNaissance.setCellValueFactory((p) -> new SimpleObjectProperty<>(p.getValue().getDateDeNaissance()));
 
+        ajouterContextMenu();
+    }
+
+    private void ajouterContextMenu() {
+        ContextMenu contextMenu = new ContextMenu();
+
         MenuItem menuItemModifier = new MenuItem("Modifier");
         MenuItem menuItemSupprimer = new MenuItem("Supprimer");
 
-        ContextMenu contextMenu = new ContextMenu();
         contextMenu.getItems().addAll(menuItemModifier, menuItemSupprimer);
 
-        tblViewSuperListe.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (Objects.nonNull(newValue)) {
+        tblViewSuperListe.getSelectionModel().selectedItemProperty().addListener((observable, wasEmpty, isEmpty) -> {
+            if (Objects.nonNull(isEmpty)) {
                 Scene scene = tblViewSuperListe.getScene();
                 tblViewSuperListe.setContextMenu(contextMenu);
 
@@ -72,6 +78,8 @@ public class ListeController {
                         tblViewSuperListe.getSelectionModel().clearSelection();
                     }
                 });
+            } else {
+                tblViewSuperListe.setContextMenu(null);
             }
         });
 
