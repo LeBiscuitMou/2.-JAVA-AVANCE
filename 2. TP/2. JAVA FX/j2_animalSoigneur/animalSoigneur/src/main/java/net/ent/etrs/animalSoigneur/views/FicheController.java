@@ -17,7 +17,7 @@ public class FicheController {
     @FXML
     public void cliquerBoutonAnimal() throws FicheControllerException {
         try {
-            Lanceur.loadFXML("ficheListeAnimal");
+            Lanceur.loadFXML("ficheListeAnimal", new CreationAnimalController());
         } catch (IOException e) {
             throw new FicheControllerException(e);
         }

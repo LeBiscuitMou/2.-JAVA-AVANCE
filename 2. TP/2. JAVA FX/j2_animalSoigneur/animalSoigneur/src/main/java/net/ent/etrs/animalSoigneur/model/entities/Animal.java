@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Table(name = "ANIMAL", uniqueConstraints = @UniqueConstraint(columnNames = {"nom"}, name = "uk__animal__nom"))
 @EqualsAndHashCode(of = {"nom"}, callSuper = false)
 @ToString(of = {"nom", "poids", "taille", "dangerous", "dateNaissance", "type"}, callSuper = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class Animal extends AbstractEntity {
     //LBK
     @Getter

@@ -33,15 +33,7 @@ public class CreationAnimalController {
     @FXML
     public TextField txtPoids;
 
-    private Animal animal;
-
-    {
-        try {
-            animal = EntitiesFactory.fabriquerAnimal("nom", 8, 5.0f, true, LocalDate.of(2001, 7, 10), Type.IBO);
-        } catch (EntitiesFactoryException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    private Animal animal = new Animal();
 
     public CreationAnimalController(Animal animal) throws EntitiesFactoryException {
         this.animal = animal;

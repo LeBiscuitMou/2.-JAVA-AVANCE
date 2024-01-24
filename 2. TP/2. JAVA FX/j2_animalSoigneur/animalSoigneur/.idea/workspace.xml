@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e47bfbb-22e0-4724-973f-9467e66f58f6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/ent/etrs/animalSoigneur/model/entities/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/ent/etrs/animalSoigneur/model/entities/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/ent/etrs/animalSoigneur/views/CreationAnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/ent/etrs/animalSoigneur/views/CreationAnimalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/ent/etrs/animalSoigneur/views/FicheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/ent/etrs/animalSoigneur/views/FicheController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/ficheListeAnimal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/ficheListeAnimal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +17,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -36,9 +37,9 @@
       </map>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2bOsvPjKLGAIkalg6armJOrGg1s" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -50,7 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/UV_3/2. JAVA AVANCE/2. TP/2. JAVA FX/j2_animalSoigneur/animalSoigneur",
+    "last_opened_file_path": "E:/UV_3/2. JAVA AVANCE/2. TP/2. JAVA FX/fistJavaFX",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -112,6 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698136262737</updated>
       <workItem from="1706097691805" duration="337000" />
+      <workItem from="1706099503181" duration="544000" />
     </task>
     <servers />
   </component>
