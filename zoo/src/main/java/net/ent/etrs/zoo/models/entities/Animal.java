@@ -1,6 +1,7 @@
-package net.ent.etrs.zoo.models;
+package net.ent.etrs.zoo.models.entities;
 
 import lombok.*;
+import net.ent.etrs.zoo.models.references.Type;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -30,4 +31,8 @@ public class Animal {
     @Getter
     @Setter
     private LocalDate dateNaissance;
+
+    @Getter
+    @Setter
+    private Type type;
 }

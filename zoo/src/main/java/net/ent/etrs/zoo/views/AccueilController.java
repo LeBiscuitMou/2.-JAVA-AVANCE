@@ -1,13 +1,19 @@
 package net.ent.etrs.zoo.views;
 
-import javafx.event.ActionEvent;
-import lombok.*;
+import javafx.fxml.FXML;
+import net.ent.etrs.zoo.start.Lanceur;
+import net.ent.etrs.zoo.views.exceptions.AccueilControllerException;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import java.io.IOException;
 
 public class AccueilController {
 
-    public void afficherListeAnimal() {
+    @FXML
+    public void afficherListeAnimal() throws AccueilControllerException {
+        try {
+            Lanceur.loadFXML("listeAnimal");
+        } catch (IOException e) {
+            throw new AccueilControllerException(e.getMessage(), e);
+        }
     }
 }

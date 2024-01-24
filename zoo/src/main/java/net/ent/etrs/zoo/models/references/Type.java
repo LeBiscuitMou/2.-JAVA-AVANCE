@@ -1,4 +1,4 @@
-package net.ent.etrs.zoo.models;
+package net.ent.etrs.zoo.models.references;
 
 public enum Type {
     FELIN,

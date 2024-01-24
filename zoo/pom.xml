@@ -104,7 +104,7 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>net.ent.etrs.fistJavaFX.start.Lanceur</mainClass>
+                            <mainClass>net.ent.etrs.zoo.start.Lanceur</mainClass>
                         </configuration>
                     </execution>
                 </executions>
