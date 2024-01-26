@@ -15,6 +15,8 @@ public interface BaseDao<T extends AbstractEntity> {
 
     void delete(Long id) throws DaoException;
 
+    void delete(T entity) throws DaoException;
+
     boolean exists(Long id) throws DaoException;
 
     long count() throws DaoException;

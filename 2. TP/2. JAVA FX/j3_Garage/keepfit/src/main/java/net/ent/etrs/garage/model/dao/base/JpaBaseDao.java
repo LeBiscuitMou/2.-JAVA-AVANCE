@@ -12,6 +12,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import java.lang.reflect.ParameterizedType;
+import java.util.Objects;
 import java.util.Optional;
 
 public abstract class JpaBaseDao<T extends AbstractEntity> implements BaseDao<T> {
@@ -31,20 +32,20 @@ public abstract class JpaBaseDao<T extends AbstractEntity> implements BaseDao<T>
 
     @Override
     public T save(T entity) throws DaoException {
+        EntityTransaction et = this.em.getTransaction();
         try {
-            EntityTransaction et = this.em.getTransaction();
             et.begin();
-            if (this.em.contains(entity)) {
-                this.em.persist(entity);
+            if (Objects.isNull(entity.getId())) {
+                em.persist(entity);
             } else {
                 entity = this.em.merge(entity);
             }
             et.commit();
             return entity;
-        } catch (PersistenceException | IllegalArgumentException e) {
+        } catch (Exception e) {
+            et.rollback();
             throw new DaoException(e);
         }
-
     }
 
     @Override
@@ -68,28 +69,35 @@ public abstract class JpaBaseDao<T extends AbstractEntity> implements BaseDao<T>
 
     @Override
     public void delete(Long id) throws DaoException {
+        EntityTransaction et = this.em.getTransaction();
         try {
-            EntityTransaction et = this.em.getTransaction();
             et.begin();
             Query query = this.em.createQuery("DELETE FROM " + this.entityClass.getSimpleName() + " t WHERE t.id = :id");
             query.setParameter("id", id);
             query.executeUpdate();
             et.commit();
         } catch (PersistenceException | IllegalArgumentException e) {
+            et.rollback();
+            throw new DaoException(e);
+        }
+    }
+
+    @Override
+    public void delete(T entity) throws DaoException {
+        EntityTransaction et = this.em.getTransaction();
+        try {
+            et.begin();
+            this.em.remove(entity);
+            et.commit();
+        } catch (Exception e) {
+            et.rollback();
             throw new DaoException(e);
         }
     }
 
     @Override
     public boolean exists(Long id) throws DaoException {
-        try {
-            return this.em
-                    .createQuery("SELECT COUNT(t) FROM " + this.entityClass.getSimpleName() + " t WHERE t.id = :id", Long.class)
-                    .setParameter("id", id)
-                    .getSingleResult() > 0;
-        } catch (IllegalArgumentException e) {
-            throw new DaoException(e);
-        }
+        return this.find(id).isPresent();
     }
 
     @Override
