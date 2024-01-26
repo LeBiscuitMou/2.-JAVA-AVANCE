@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="500.0" maxWidth="600.0" minHeight="500.0" minWidth="600.0" prefHeight="500.0" prefWidth="600.0" stylesheets="@style/burger_queen.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include fx:id="barreMenu" source="BarreMenu.fxml" />
+      <Label layoutX="11.0" layoutY="82.0" prefHeight="25.0" prefWidth="180.0" text="Liste des commandes :" />
+      <TableView fx:id="tvProduitsCommande" layoutX="9.0" layoutY="244.0" prefHeight="166.0" prefWidth="428.0">
+        <columns>
+          <TableColumn fx:id="tcNomProduitCommande" maxWidth="185.0" prefWidth="185.0" text="Nom" />
+          <TableColumn fx:id="tcTailleProduitCommande" maxWidth="71.0" prefWidth="60.0" text="Taille" />
+          <TableColumn fx:id="tcQteProduitCommande" maxWidth="60.0" prefWidth="47.0" text="Qté" />
+        </columns>
+      </TableView>
+      <Label layoutX="11.0" layoutY="46.0" prefHeight="25.0" prefWidth="63.0" text="Client : " />
+      <Button fx:id="btnAccueil" layoutX="259.0" layoutY="435.0" mnemonicParsing="false" onAction="#accueil" text="Acceuil" />
+      <ListView fx:id="lvCommandes" layoutX="9.0" layoutY="119.0" prefHeight="84.0" prefWidth="332.0" />
+      <Label layoutX="9.0" layoutY="208.0" prefHeight="25.0" prefWidth="210.0" text="Détail de la commandes :" />
+      <Label fx:id="lblClient" layoutX="83.0" layoutY="46.0" prefHeight="25.0" prefWidth="141.0" />
+	</children>
+
+</AnchorPane>

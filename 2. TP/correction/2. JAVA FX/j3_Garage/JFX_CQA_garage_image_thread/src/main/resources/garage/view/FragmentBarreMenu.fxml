@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="laBarre" fx:controller="garage.presenter.FragmentBarreMenuPresenter"  prefHeight="22.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar>
+        <menus>
+            <Menu mnemonicParsing="false" text="UC">
+              <items>
+                <MenuItem fx:id="listerVoitures" onAction="#listerVoitures" mnemonicParsing="false" text="Lister les voitures" />
+                  <MenuItem fx:id="ajouterVoiture" onAction="#ajouterVoiture" mnemonicParsing="false" text="Ajouter une voiture" />
+                  <MenuItem fx:id="camembert" onAction="#statistiquer" text="Voir les stats"/>
+                  <MenuItem fx:id="quitter" onAction="#quitter" mnemonicParsing="false" text="Quitter" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Aide">
+            <items>
+              <MenuItem onAction="#apropos" mnemonicParsing="false" text="A propos" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</VBox>

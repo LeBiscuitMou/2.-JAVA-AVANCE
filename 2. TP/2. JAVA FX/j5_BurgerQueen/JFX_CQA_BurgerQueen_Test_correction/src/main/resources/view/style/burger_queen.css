@@ -1,0 +1,295 @@
+.root {
+-fx-text-background-color: ladder(
+        -fx-background,
+        -fx-light-text-color 45.0%,
+        -fx-dark-text-color  46.0%,
+        -fx-dark-text-color  59.0%,
+        -fx-mid-text-color   60.0%
+     );
+     
+
+
+	-fx-text-fill: -fx-text-background-color;
+
+ /* These are needed for Popup */
+    -fx-background-color: inherit;
+    -fx-background-radius: inherit;
+    -fx-background-insets: inherit;
+    -fx-padding: inherit;
+}
+
+
+.fond-ecran{
+	-fx-background-image: url("../images/fond2.jpg");
+	-fx-background-repeat: no-repeat; 
+	-fx-background-position: center; 
+	-fx-background-size: cover, auto;
+	/*-fx-opacity: 0.4;*/
+}
+
+.buttonWithImageValider { 
+    -fx-background-image: url("../images/coche_verte_ss_fond.png");
+    -fx-background-size: 30.0px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 1.0%;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Button                                                                      *
+ *                                                                             *
+ ******************************************************************************/
+
+.button {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0.0 0.0 -1.0 0.0, 0.0, 1.0, 2.0;
+    -fx-background-radius: 5.0, 5.0, 4.0, 3.0;
+    -fx-padding: 0.166667em 0.833333em 0.25em 0.833333em; /* 2 10 3 10 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+    -fx-font-size : 16.0;
+    -fx-font-weight : bold;
+    
+}
+
+.button:focused {
+    -fx-color: -fx-focused-base;
+    -fx-background-color: -fx-focus-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: -1.4, 0.0, 1.0, 2.0;
+    -fx-background-radius:  6.4, 5.0, 4.0, 3.0;
+}
+
+.button:hover {
+    -fx-color: -fx-hover-base;
+}
+
+.button:armed {
+    -fx-color: -fx-pressed-base;
+}
+ 
+.button:default {
+    -fx-base: -fx-accent;
+}
+
+.button:cancel {
+}
+
+.button:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+.button:show-mnemonics > .mnemonic-underline {
+    -fx-stroke: -fx-text-fill;
+}
+
+.label {
+    -fx-text-fill: -fx-text-background-color;
+    -fx-font-size : 16.0;
+    -fx-font-weight : bold;
+}
+
+.label:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+.label:show-mnemonics > .mnemonic-underline {
+    -fx-stroke: -fx-text-fill;
+} 
+
+/*******************************************************************************
+ *                                                                             *
+ * Menu                                                                        *
+ *                                                                             *
+ ******************************************************************************/
+
+.menu {
+    -fx-background-color: transparent;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+}
+
+.menu:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+.menu:show-mnemonics > .mnemonic-underline {
+    -fx-stroke: -fx-text-fill;
+}
+.menu > .right-container > .arrow {
+    -fx-padding: 0.458em 0.167em 0.458em 0.167em; /* 4.5 2 4.5 2 */
+    -fx-background-color: -fx-mark-color;
+    -fx-shape: "M0,-4L4,0L0,4Z";
+    -fx-scale-shape: false;
+}
+
+.menu:focused > .right-container > .arrow {
+    -fx-background-color: white;
+}
+
+/* This hides the down arrow that would show on a menu placed in a menubar */
+.menu-bar > .container > .menu > .arrow-button > .arrow {
+    -fx-padding: 0.0;
+    -fx-background-color: transparent;
+    -fx-shape: null;
+}
+
+.menu-bar > .container > .menu > .arrow-button {
+    -fx-padding: 0.0;
+}
+
+.menu-up-arrow {
+    -fx-padding: 0.666667em 0.416667em 0.0em 0.416667em;  /* 8 5 0 5 */
+    -fx-background-color: derive(-fx-color,-2.0%);
+    -fx-shape: "M0 1 L1 1 L.5 0 Z";
+    -fx-effect: innershadow( two-pass-box , rgba(0.0,0.0,0.0,0.6) , 4.0, 0.0 , 0.0 , 1.0 );
+}
+
+.menu-down-arrow {
+    -fx-background-color: derive(-fx-color,-2.0%);
+    -fx-padding: 0.666667em 0.416667em 0.0em 0.416667em;  /* 8 5 0 5 */
+    -fx-shape: "M0 0 L1 0 L.5 1 Z";
+    -fx-effect: innershadow( two-pass-box , rgba(0.0,0.0,0.0,0.6) , 4.0, 0.0 , 0.0 , 1.0 );
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * MenuBar                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+/* Corresponding hex values for the color derivations used below are: *
+ * derive(-fx-base,-30%); #929292                                     *
+ * derive(-fx-base,-50%); #686868                                     *
+ * derive(-fx-base,-70%); #3e3e3e                                     */
+
+.menu-bar {
+    -fx-padding: 0.0em 0.666667em 0.0em 0.666667em; /* 0 8 0 8 */
+    -fx-spacing: 0.166667em; /* 2 */
+    -fx-base: derive(#d0d0d0,-70.0%);
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-color,50.0%), derive(-fx-color,-30.0%)), -fx-body-color;
+    -fx-background-insets: 0.0, 1.0 0.0 1.0 0.0;
+    -fx-background-radius: 0.0, 0.0 ;
+}
+
+/* Show nothing for background of normal menu button in a menu bar */
+.menu-bar > .container > .menu-button {
+    -fx-background-radius: 0.0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0.0; 
+}
+/* Change padding of menu buttons when in menu bar */
+.menu-bar > .container > .menu-button > .label {
+    -fx-padding: 0.333em 0.5em 0.333em 0.5em; /* 4 6 4 6*/
+}
+
+.menu-bar > .container > .menu-button:hover, .menu-bar > .container > .menu-button:focused, .menu-bar > .container > .menu-button:showing {
+    -fx-background: -fx-accent;
+    -fx-background-color: -fx-selection-bar;
+    -fx-text-fill: -fx-selection-bar-text;
+}
+
+/*.menu-bar .menu:focused:showing, .menu-bar .menu:showing, .menu-bar .menu:focused, .menu:focused:showing, .menu:showing, .menu:focused {*/
+/*.menu-bar .menu-button:showing, .menu-button:showing {
+    -fx-background: -fx-accent;
+    -fx-background-color: -fx-selection-bar;
+    -fx-text-fill: -fx-selection-bar-text;
+}*/
+
+.menu-bar > .container > .menu-button:hover {
+    -fx-background: -fx-accent;
+    -fx-background-color: -fx-selection-bar;
+    -fx-text-fill: -fx-selection-bar-text;
+}
+
+.menu-bar:show-mnemonics > .mnemonic-underline {
+    -fx-stroke: -fx-text-fill;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * MenuItem                                                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.menu-item {
+    -fx-background-color: transparent;
+    -fx-padding: 0.333333em 0.41777em 0.333333em 0.41777em;  /* 4 5 4 5 */
+}
+
+.menu-item > .left-container {
+    -fx-padding: 0.458em 0.791em 0.458em 0.458em;
+}
+
+.menu-item > .graphic-container {
+    -fx-padding: 0.0em 0.333em 0.0em 0.0em;
+}
+
+.menu-item >.label {
+    -fx-padding: 0.0em 0.5em 0.0em 0.0em;
+    -fx-text-fill: -fx-text-base-color;
+}
+
+.menu-item:disabled > .label {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+.menu-item:focused {
+     -fx-background: -fx-accent;
+     -fx-background-color: -fx-selection-bar;
+     -fx-text-fill: -fx-selection-bar-text;
+}
+
+.menu-item:focused > .label {
+    -fx-text-fill: white;
+}
+.menu-item > .right-container {
+    -fx-padding: 0.0em 0.0em 0.0em 0.5em;
+}
+
+.menu-item:show-mnemonics > .mnemonic-underline {
+    -fx-stroke: -fx-text-fill;
+} 
+
+.radio-menu-item:checked > .left-container > .radio {
+    -fx-background-color: -fx-mark-color;
+    -fx-shape: "M0,5H2L4,8L8,0H10L5,10H3Z";
+    -fx-scale-shape: false;
+}
+
+.radio-menu-item:focused:checked > .left-container > .radio {
+    -fx-background-color: white;
+}
+
+.check-menu-item:checked > .left-container > .check {
+    -fx-background-color: -fx-mark-color;
+    -fx-shape: "M0,5H2L4,8L8,0H10L5,10H3Z";
+    -fx-scale-shape: false;
+}
+
+.check-menu-item:focused:checked > .left-container > .check {
+    -fx-background-color: white;
+}
+
+/*.radio.selected {
+    -fx-background-color: -fx-mark-color;
+    -fx-padding: 0.666667em;  8
+    -fx-shape: "M7,3.5C7,5.433,5.433,7,3.5,7C1.567,7,0,5.433,0,3.5C0,1.567,1.63,0,3.5,0C5.433,0,7,1.567,7,3.5z";
+    -fx-scale-shape: false; 
+}*/
+
+/*.check.checked {
+    -fx-background-color: -fx-mark-color;
+    -fx-padding: 0.666667em;  8
+    -fx-shape: "M0,5H2L4,8L8,0H10L5,10H3Z";
+    -fx-scale-shape: false;
+}*/
+
+/*
+.menu-item:hover:selected .menu-item-check, .menu-item:focused:selected .menu-item-check,.menu-item:hover:selected .menu-item-radio, .menu-item:focused:selected .menu-item-radio {
+    -fx-background-color: -fx-selection-bar-text;
+}
+*/
+.menu-item:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}

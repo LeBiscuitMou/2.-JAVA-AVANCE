@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ent.etrs.zoo.views.AccueilController">
+   <Label layoutX="263.0" layoutY="27.0" text="Gestion ZOO">
+      <font>
+         <Font size="48.0"/>
+      </font>
+   </Label>
+   <Button layoutX="180.0" layoutY="186.0" mnemonicParsing="false" onAction="#goToListeAnimaux" prefHeight="64.0"
+           prefWidth="151.0" text="Animaux">
+      <font>
+         <Font size="24.0"/>
+      </font>
+   </Button>
+   <Button layoutX="486.0" layoutY="186.0" mnemonicParsing="false" onAction="#goToListeSoigneurs" prefHeight="64.0"
+           prefWidth="151.0" text="Soigneurs">
+      <font>
+         <Font size="24.0"/>
+      </font>
+   </Button>
+</AnchorPane>

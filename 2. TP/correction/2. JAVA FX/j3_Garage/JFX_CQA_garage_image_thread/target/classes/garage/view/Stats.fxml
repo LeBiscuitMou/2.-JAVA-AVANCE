@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="427.0" prefWidth="528.0" stylesheets="/view/resources/application.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="garage.presenter.StatsPresenter">
+   <children>
+   	<fx:include source="FragmentBarreMenu.fxml" GridPane.columnSpan="2" />
+      <PieChart fx:id="piechart" layoutX="76.0" layoutY="61.0" prefHeight="367.0" prefWidth="455.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,65 @@
+﻿public void initialisationClient() {
+		List<Client> lstClients = new  ArrayList<>();
+		
+		lstClients.add(EntitiesFactory.fabriquerClient("toto", "totop", "toto@g"));
+		lstClients.add(EntitiesFactory.fabriquerClient("titi", "titip", "titi@g"));
+		lstClients.add(EntitiesFactory.fabriquerClient("alf", "raid", "alf@g"));
+		lstClients.add(EntitiesFactory.fabriquerClient("dark", "queen", "dark.queen@g"));
+		lstClients.add(EntitiesFactory.fabriquerClient("Udutorse", "paul", "paul.udutore@g"));
+		
+		
+		lstClients.forEach((p)->rechercherCreerClient(p));
+		
+		
+		
+	}
+	
+public void initialisation(ClientFacade facadeClient, ProduitFacade facadeProduit) {
+
+	List<Produit> lstProduits = new ArrayList<>();
+	List<Commande> lstCommandes = new ArrayList<>();
+	try {
+		lstProduits.add(facadeProduit.searchProduitByNomPrenom("burger", TypeProduit.SANDWICH, TailleProduit.PETIT));
+		lstProduits.add(facadeProduit.searchProduitByNomPrenom("coca", TypeProduit.BOISSON, TailleProduit.PETIT));
+		lstProduits.add(facadeProduit.searchProduitByNomPrenom("patatoes", TypeProduit.POTATOES, TailleProduit.PETIT));
+
+		lstCommandes.add(EntitiesFactory.fabriquerCommande(facadeClient.searchClientByNomPrenom("dark", "queen"),lstProduits));
+		
+		lstProduits.clear();
+
+		lstProduits.add(facadeProduit.searchProduitByNomPrenom("coca", TypeProduit.BOISSON, TailleProduit.GRAND));
+		lstProduits.add(facadeProduit.searchProduitByNomPrenom("coca", TypeProduit.BOISSON, TailleProduit.GRAND));
+		lstProduits.add(facadeProduit.searchProduitByNomPrenom("coca", TypeProduit.BOISSON, TailleProduit.MOYEN));
+		lstProduits.add(facadeProduit.searchProduitByNomPrenom("tiges blondes", TypeProduit.FRITE, TailleProduit.MOYEN));
+
+		
+		lstCommandes.add(EntitiesFactory.fabriquerCommande(facadeClient.searchClientByNomPrenom("Udutorse", "paul"),lstProduits));
+	} catch (BusinessException e) {
+		e.printStackTrace();
+		AlerteUtils.afficherMessageDansAlerte(C.MSG_ERREUR_INIT_COMMANDE, AlertType.INFORMATION);
+	}
+	
+	lstCommandes.forEach(c->this.create(c));
+
+}
+
+public void initialisationProduit() {
+	List<Produit> lstProduits = new  ArrayList<>();
+	
+	lstProduits.add(EntitiesFactory.fabriquerProduit("burger", TailleProduit.PETIT, new BigDecimal(2), TypeProduit.SANDWICH));
+	lstProduits.add(EntitiesFactory.fabriquerProduit("double miche", TailleProduit.PETIT, new BigDecimal(2), TypeProduit.SANDWICH));
+	lstProduits.add(EntitiesFactory.fabriquerProduit("double miche", TailleProduit.MOYEN, new BigDecimal(3), TypeProduit.SANDWICH));
+	lstProduits.add(EntitiesFactory.fabriquerProduit("double miche", TailleProduit.GRAND, new BigDecimal(4), TypeProduit.SANDWICH));
+	lstProduits.add(EntitiesFactory.fabriquerProduit("coca", TailleProduit.PETIT, new BigDecimal(1), TypeProduit.BOISSON));
+	lstProduits.add(EntitiesFactory.fabriquerProduit("coca", TailleProduit.MOYEN, new BigDecimal(1.5), TypeProduit.BOISSON));
+	lstProduits.add(EntitiesFactory.fabriquerProduit("coca", TailleProduit.GRAND, new BigDecimal(2), TypeProduit.BOISSON));
+	lstProduits.add(EntitiesFactory.fabriquerProduit("patatoes", TailleProduit.PETIT, new BigDecimal(1), TypeProduit.POTATOES));
+	lstProduits.add(EntitiesFactory.fabriquerProduit("tiges blondes", TailleProduit.PETIT, new BigDecimal(1), TypeProduit.FRITE));
+	lstProduits.add(EntitiesFactory.fabriquerProduit("tiges blondes", TailleProduit.MOYEN, new BigDecimal(1.5), TypeProduit.FRITE));
+	lstProduits.add(EntitiesFactory.fabriquerProduit("tiges blondes", TailleProduit.GRAND, new BigDecimal(2), TypeProduit.FRITE));
+	
+	lstProduits.forEach((p)->rechercherCreerProduit(p));
+	
+	
+	
+	}

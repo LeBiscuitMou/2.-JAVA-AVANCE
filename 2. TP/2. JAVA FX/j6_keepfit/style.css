@@ -1,0 +1,44 @@
+.root{
+    -fx-font-size: 13px;
+    -fx-font-family: "Tahoma";   
+    -fx-background: rgb(153, 255, 204);    
+}
+
+.classeBouton{
+  	-fx-font: 13px "Tahoma";
+    -fx-padding: 10; 
+    -fx-background-color: #61a2b1;  
+}
+
+.classeBouton:hover {    
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+    -fx-text-fill:azure ;
+}
+
+.titreLabel {
+	-fx-alignment: center ;
+	-fx-font: 13px "Tahoma";
+	-fx-padding: 10; 
+    -fx-background-color: #61a2b1;
+}
+
+
+.table-view:focused{
+    -fx-background-color: transparent;
+   }
+
+
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-font: 13px "Tahoma";
+	-fx-padding: 10; 
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+

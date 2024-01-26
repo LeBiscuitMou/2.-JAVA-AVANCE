@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="496.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ent.etrs.projet.views.controllers.impl.ListAnimalController">
+   <children>
+      <TableView fx:id="tvAnimal" layoutX="15.0" layoutY="14.0" prefHeight="356.0" prefWidth="678.0">
+        <columns>
+          <TableColumn fx:id="tcNom" prefWidth="145.0" text="nom" />
+          <TableColumn fx:id="tcPoids" prefWidth="75.0" text="poids" />
+            <TableColumn fx:id="tcTaille" prefWidth="71.0" text="taille" />
+            <TableColumn fx:id="tcType" prefWidth="93.0" text="Type" />
+            <TableColumn fx:id="tcDangerosite" prefWidth="122.0" text="dangerosité" />
+            <TableColumn fx:id="tcDdN" prefWidth="171.0" text="date de Naissance" />
+        </columns>
+      </TableView>
+      <Button layoutX="472.0" layoutY="407.0" mnemonicParsing="false" onAction="#creerAnimal" text="Ajouter un nouvel animal" />
+      <Button layoutX="94.0" layoutY="407.0" mnemonicParsing="false" onAction="#goToMainMenu" text="retour au menu principal" />
+   </children>
+</AnchorPane>

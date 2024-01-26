@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="500.0" maxWidth="600.0" minHeight="500.0" minWidth="600.0" prefHeight="500.0" prefWidth="600.0" stylesheets="@style/burger_queen.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include source="BarreMenu.fxml" fx:id="barreMenu"/>
+      <Button fx:id="btnCreerModifier" layoutX="196.0" layoutY="435.0" mnemonicParsing="false" onAction="#creerModifierClient" text="Créer" />
+      <Button fx:id="btnAnnuler" layoutX="316.0" layoutY="435.0" mnemonicParsing="false" onAction="#annuler" text="Annuler" />
+      <Label layoutX="73.0" layoutY="101.0" text="Nom : " />
+      <Label layoutX="73.0" layoutY="187.0" text="Courriel :" />
+      <Label layoutX="73.0" layoutY="145.0" text="Prénom : " />
+      <TextField fx:id="tfNom" layoutX="213.0" layoutY="101.0" prefHeight="25.0" prefWidth="205.0" />
+      <TextField fx:id="tfPrenom" layoutX="213.0" layoutY="145.0" prefHeight="25.0" prefWidth="205.0" />
+      <TextField fx:id="tfCourriel" layoutX="213.0" layoutY="187.0" prefHeight="25.0" prefWidth="205.0" />
+	</children>
+
+</AnchorPane>

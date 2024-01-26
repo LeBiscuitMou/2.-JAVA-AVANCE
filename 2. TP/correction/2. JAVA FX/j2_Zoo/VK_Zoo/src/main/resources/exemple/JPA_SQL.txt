@@ -1,0 +1,65 @@
+
+POUR LES MAP EN QUERY JPQL : KEY(map), VALUE(map)
+/*************************************************************************************************************/
+requêtes spécials
+
+@Override
+public Equipe findBestEquipeByYearAndName(Integer annee, String nomChampionnat) throws DaoException {
+    try {
+        TypedQuery<Equipe> query = this.em.createQuery("SELECT e FROM Championnat c " +
+                        "INNER JOIN c.classement e " +
+                        "LEFT JOIN e.listeJoueurs j " +
+                        "WHERE c.anneeChampionnat = :annee AND c.nomChampionnat = :nom " +
+                        " GROUP BY e.id" +
+                        " ORDER BY SUM(j.nbPoints) DESC"
+                ,Equipe.class);
+        query.setParameter("annee", annee);
+        query.setParameter("nom", nomChampionnat);
+
+        query.setMaxResults(1);
+        return query.getSingleResult();
+
+    } catch (IllegalArgumentException e) {
+        throw new DaoException(e);
+    }
+}
+
+@Override
+public Map<Equipe, Joueur> findBestJoueurByTeamForYearAndName(Integer annee, String nomChampionnat) throws DaoException {
+    try {
+        TypedQuery<Tuple> query = this.em.createQuery("SELECT e as equipe, j as joueur " +
+                        "FROM Championnat c " +
+                        "INNER JOIN c.classement e " +
+                        "INNER JOIN e.listeJoueurs j " +
+                        "WHERE c.anneeChampionnat = :annee AND c.nomChampionnat = :nom " +
+                        "AND j.nbPoints = (SELECT MAX(j2.nbPoints) FROM e.listeJoueurs j2) ",
+                Tuple.class);
+
+        query.setParameter("annee", annee);
+        query.setParameter("nom", nomChampionnat);
+
+        return query.getResultStream().collect(Collectors.toMap(
+                tuple -> ((Equipe) tuple.get("equipe")),
+                tuple -> ((Joueur) tuple.get("joueur"))
+        ));
+
+    } catch (IllegalArgumentException e) {
+        throw new DaoException(e);
+    }
+}
+
+
+/*************************************************************************************************************/
+à utiliser pour les requêtes ou il faut récupérer des trucs dans des map.
+
+
+Query query = this.em.createNativeQuery("SELECT build_perso " +
+                "FROM league_personnage c, personnage p " +
+                "WHERE c.personnage_id = p.id " +
+                "AND c.league_id = " + id + " " +
+                "GROUP BY build_perso " +
+                "ORDER BY MIN(rang) ASC").setMaxResults(3);
+
+Set<LabySpecialite> set = new HashSet<>();
+query.getResultList().forEach(r -> set.add(LabySpecialite.valueOf((String) r)));
+return set;

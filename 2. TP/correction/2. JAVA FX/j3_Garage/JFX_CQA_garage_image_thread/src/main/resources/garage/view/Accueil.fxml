@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox fx:id="sceneAccueil" fx:controller= "garage.presenter.AccueilPresenter" stylesheets="@resources/application.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+   <fx:include fx:id="barreMenu" source="FragmentBarreMenu.fxml" />
+      <ImageView fitHeight="425.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@resources/garage.png" />
+         </image>
+      </ImageView>
+   </children>
+</VBox>

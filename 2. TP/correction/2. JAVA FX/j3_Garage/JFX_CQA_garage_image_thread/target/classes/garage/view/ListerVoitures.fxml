@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@resources/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="garage.presenter.ListerVoituresPresenter">
+	<children>
+	<fx:include source="FragmentBarreMenu.fxml" />
+      <TableView fx:id="tvVoitures" layoutY="29.0" prefHeight="321.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="tcImmat" prefWidth="200.0" text="Immatriculation" />
+           <TableColumn fx:id="tcMarque" prefWidth="200.0" text="Marque" />
+          <TableColumn fx:id="tcModele" prefWidth="200.0" text="Modele" />
+        </columns> 
+        <contextMenu>    
+            <ContextMenu>
+              <items>
+              	<MenuItem mnemonicParsing="false" onAction="#detailler" text="Détails" />
+                <MenuItem mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
+             	<MenuItem mnemonicParsing="false" onAction="#editer" text="Editer" />
+              </items>
+            </ContextMenu>
+        </contextMenu> 
+      </TableView>
+      <CheckBox fx:id="chkBxTri" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#trierParPuissance" text="Tri par puissance" />
+      <ProgressIndicator fx:id="pi" layoutX="271.0" layoutY="351.0" prefHeight="45.0" prefWidth="44.0" progress="0.0" />	
+	</children>
+</AnchorPane>

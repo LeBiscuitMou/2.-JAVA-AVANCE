@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="laBarre" prefHeight="22.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BarreMenuController">
+	<children>
+		<MenuBar fx:id="menuBar" prefHeight="73.0" prefWidth="600.0">
+			<menus>
+				<Menu mnemonicParsing="false" text="Client">
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#listerClients" text="Lister les clients" />
+						<MenuItem mnemonicParsing="false" onAction="#ajouterClient" text="Ajouter un client" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Commandes">
+					<items>
+
+						<MenuItem mnemonicParsing="false" onAction="#creerCommande" text="Passer une commande" />
+
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Aide">
+					<items>
+
+						<MenuItem mnemonicParsing="false" onAction="#quitter" text="Quitter" />
+						<MenuItem mnemonicParsing="false" onAction="#apropos" text="A propos" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+	</children>
+</VBox>

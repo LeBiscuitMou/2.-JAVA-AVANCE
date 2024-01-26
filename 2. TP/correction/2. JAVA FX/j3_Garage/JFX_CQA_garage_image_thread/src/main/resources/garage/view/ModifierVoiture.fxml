@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane prefHeight="425.0" prefWidth="600.0" stylesheets="@resources/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+   	<fx:include source="FragmentBarreMenu.fxml" GridPane.columnSpan="2" />
+      <Label prefHeight="15.0" text="Immatriculation" GridPane.rowIndex="1" />
+      <Label prefHeight="15.0" prefWidth="120.0" text="Marque" GridPane.rowIndex="2" />      
+      <Label prefHeight="15.0" prefWidth="181.0" text="Modele" GridPane.rowIndex="3" />
+      <Label fx:id="lblPuissance" prefHeight="37.0" prefWidth="290.0" text="Puissance" GridPane.rowIndex="4" />
+      <Label prefHeight="15.0" text="Date de mise en circu." GridPane.rowIndex="5" />
+      <TextField fx:id="tfImmat" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <ComboBox fx:id="cbMarque" prefHeight="15.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="tfModele" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Slider fx:id="slPuissance" showTickLabels="true" showTickMarks="true"  majorTickUnit="250" max="1000.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <DatePicker fx:id="dpMec" prefWidth="300.0" prefHeight="15.0"  GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Button id="shiny-orange" mnemonicParsing="false" onAction="#modifier" prefHeight="10.0" prefWidth="144.0" text="Modifier" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+      
+      
+   </children>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="400.0" minWidth="193.0" prefWidth="400.0" />
+      <ColumnConstraints maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
+    </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints minHeight="30.0" prefHeight="40.0" />
+      <RowConstraints minHeight="30.0" prefHeight="40.0" />
+      <RowConstraints minHeight="30.0" prefHeight="40.0" />
+      <RowConstraints minHeight="30.0" prefHeight="40.0" />
+      <RowConstraints minHeight="30.0" prefHeight="40.0" />
+      <RowConstraints minHeight="30.0" prefHeight="40.0" />
+   </rowConstraints>
+</GridPane>
+

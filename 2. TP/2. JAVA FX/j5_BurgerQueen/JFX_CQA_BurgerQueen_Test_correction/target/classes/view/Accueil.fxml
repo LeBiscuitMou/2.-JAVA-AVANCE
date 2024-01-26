@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" styleClass="fond-ecran" stylesheets="@style/burger_queen.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccueilController">
+   <children>
+	   <fx:include source="BarreMenu.fxml" fx:id="barreMenu"/>
+      <Button layoutX="174.0" layoutY="207.0" mnemonicParsing="false" onAction="#commander" prefHeight="86.0" prefWidth="252.0" text="Passer une commande" />
+    	 
+   </children>
+</AnchorPane>
