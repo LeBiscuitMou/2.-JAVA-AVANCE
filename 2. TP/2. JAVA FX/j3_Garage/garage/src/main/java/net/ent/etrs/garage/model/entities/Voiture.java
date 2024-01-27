@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "voiture", uniqueConstraints = @UniqueConstraint(columnNames = {"immatriculation"}, name = "uk__voiture__immatriculation"))
 @EqualsAndHashCode(of = {"immatriculation"}, callSuper = false)
-@ToString(of = {"immatriculation", "model", "puissance", "miseEnCirculation", "marque"}, callSuper = true)
+@ToString(of = {"immatriculation", "modele", "puissance", "miseEnCirculation", "marque"}, callSuper = true)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class Voiture extends AbstractEntity {

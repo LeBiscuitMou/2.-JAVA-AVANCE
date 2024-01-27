@@ -8,28 +8,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.111"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ent.etrs.garage.views.voiture.ListeVoituresController">
-    <Label layoutX="425.0" layoutY="14.0" text="Liste des Voitures présentes"/>
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ent.etrs.garage.views.voiture.ListeVoituresController">
+    <Label layoutX="425.0" layoutY="14.0" text="Liste des Voitures présentes" />
     <TableView fx:id="tblVoitures" layoutX="27.0" layoutY="76.0" prefHeight="361.0" prefWidth="956.0">
         <columns>
-            <TableColumn fx:id="tbcImmatriculation" prefWidth="310.0" text="Immatriculation"/>
-            <TableColumn fx:id="tbcChemin" prefWidth="357.0" text="Chemin complet"/>
-            <TableColumn fx:id="tbcNationalite" prefWidth="288.0" text="Nationalité"/>
+            <TableColumn fx:id="tbcImmatriculation" prefWidth="195.0" text="Immatriculation" />
+            <TableColumn fx:id="tbcModele" prefWidth="175.0" text="Modèle" />
+            <TableColumn fx:id="tbcPuissance" prefWidth="186.0" text="Puissance" />
+         <TableColumn fx:id="tbcMiseEnCirculation" minWidth="0.0" prefWidth="207.0" text="Mise en circulation" />
+         <TableColumn fx:id="tbcMarque" minWidth="0.0" prefWidth="192.0" text="Marque" />
         </columns>
     </TableView>
-    <Button fx:id="btnAccueil" layoutX="27.0" layoutY="437.0" mnemonicParsing="false" onAction="#goToAccueil"
-            prefHeight="48.0" prefWidth="459.0" text="Accueil">
+    <Button fx:id="btnAccueil" layoutX="27.0" layoutY="437.0" mnemonicParsing="false" onAction="#goToAccueil" prefHeight="48.0" prefWidth="459.0" text="Accueil">
         <font>
-            <Font size="22.0"/>
+            <Font size="22.0" />
         </font>
     </Button>
-    <Button fx:id="btnCreer" layoutX="524.0" layoutY="437.0" mnemonicParsing="false" onAction="#goToFicheVoiture"
-            prefHeight="48.0" prefWidth="459.0" text="Créer">
+    <Button fx:id="btnCreer" layoutX="524.0" layoutY="437.0" mnemonicParsing="false" onAction="#goToFicheVoiture" prefHeight="48.0" prefWidth="459.0" text="Créer">
         <font>
-            <Font size="22.0"/>
+            <Font size="22.0" />
         </font>
     </Button>
-    <Label layoutX="27.0" layoutY="43.0" text="Recherche :"/>
-    <TextField fx:id="txtRechercheMarque" layoutX="98.0" layoutY="39.0"/>
+    <Label layoutX="27.0" layoutY="43.0" text="Recherche :" />
+    <TextField fx:id="txtRechercheVoiture" layoutX="98.0" layoutY="39.0" />
 </AnchorPane>
