@@ -1,8 +1,10 @@
 package net.ent.etrs.garage.views.utils;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+@AllArgsConstructor
 @EqualsAndHashCode(of = "object")
 public class Item<T> {
 
@@ -11,11 +13,6 @@ public class Item<T> {
 
     @Getter
     private String libelle;
-
-    public Item(T object, String libelle) {
-        this.object = object;
-        this.libelle = libelle;
-    }
 
     @Override
     public String toString() {

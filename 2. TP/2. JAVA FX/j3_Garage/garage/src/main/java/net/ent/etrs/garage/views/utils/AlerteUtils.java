@@ -3,20 +3,19 @@ package net.ent.etrs.garage.views.utils;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import java.util.Optional;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class AlerteUtils {
-
-	private AlerteUtils() {
-	}
-	
 	/**
 	 * Affiche le messages de l'exceptione passée en paramètre avec le niveau d'alerte aussi passé en paramètre.
 	 * @param e : l'exception.
 	 * @param niveauAlerte: INFO,ERROR,WARNING
 	 */
-	public static void afficherExceptionDansAlerte(Exception e,AlertType niveauAlerte) {
+	public static void afficherExceptionDansAlerte(Exception e, AlertType niveauAlerte) {
 		Alert a = new Alert(niveauAlerte);
 		a.setContentText(e.getMessage());
 		a.showAndWait();
@@ -28,7 +27,7 @@ public final class AlerteUtils {
 	 * @param niveauAlerte: INFO,ERROR,WARNING
 	 * @return 
 	 */
-	public static Boolean afficherMessageDansAlerte(String msg,AlertType niveauAlerte) {
+	public static Boolean afficherMessageDansAlerte(String msg, AlertType niveauAlerte) {
 		Boolean retour = false;
 		Alert a = new Alert(niveauAlerte);
 		a.setContentText(msg);
@@ -48,7 +47,7 @@ public final class AlerteUtils {
 	 * @param niveauAlerte: INFO,ERROR,WARNING
 	 * @return 
 	 */
-	public static Boolean afficherMessageDansAlerte(String titre, String msg,AlertType niveauAlerte) {
+	public static Boolean afficherMessageDansAlerte(String titre, String msg, AlertType niveauAlerte) {
 		Boolean retour = false;
 		Alert a = new Alert(niveauAlerte);
 		a.setTitle(titre);

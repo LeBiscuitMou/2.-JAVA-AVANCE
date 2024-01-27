@@ -3,6 +3,7 @@ package net.ent.etrs.garage.start;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,6 +38,8 @@ public class Lanceur extends Application {
         Lanceur.stage = stage;
         Lanceur.scene  = new Scene(FXMLLoader.load(Objects.requireNonNull(Lanceur.class.getResource("/views/accueil.fxml"))));
         stage.setScene(Lanceur.scene);
+        stage.getIcons().add(new Image(Objects.requireNonNull(Lanceur.class.getResourceAsStream("/garage.png"))));
+        stage.setTitle("Garage");
         stage.show();
     }
 

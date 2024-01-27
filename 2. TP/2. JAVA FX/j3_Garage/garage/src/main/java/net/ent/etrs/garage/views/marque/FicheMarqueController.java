@@ -1,16 +1,13 @@
 package net.ent.etrs.garage.views.marque;
 
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import lombok.*;
+import lombok.NoArgsConstructor;
 import net.ent.etrs.garage.model.entities.Marque;
 import net.ent.etrs.garage.model.entities.references.Nationalite;
 import net.ent.etrs.garage.model.facade.IFacadeMetierMarque;
@@ -19,21 +16,15 @@ import net.ent.etrs.garage.model.facade.impl.FacadeMetierFactory;
 import net.ent.etrs.garage.start.Lanceur;
 import net.ent.etrs.garage.views.utils.AlerteUtils;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.file.Path;
 import java.util.Objects;
 
 @NoArgsConstructor
 public class FicheMarqueController {
     @FXML
     public TextField txtLibelle;
-
-    @FXML
-    public ButtonBar btnBarImageBouton;
 
     @FXML
     public Button btnChoisirImage;
@@ -45,9 +36,6 @@ public class FicheMarqueController {
 
     @FXML
     public ComboBox<Nationalite> cmbNationalite;
-
-    @FXML
-    public Button btnValider;
 
     private IFacadeMetierMarque facadeMetierMarque = FacadeMetierFactory.fabriquerFacadeMetierMarque();
 
@@ -83,13 +71,20 @@ public class FicheMarqueController {
     @FXML
     public void valider() {
         try {
-            marque.setLibelle(txtLibelle.getText());
-            marque.setCheminComplet(cheminComplet);
-            marque.setNationalite(cmbNationalite.getValue());
+            if (null == txtLibelle.getText() || txtLibelle.getText().isBlank()
+            || null == imgViewCheminComplet.getImage()
+            || cheminComplet.isBlank()
+            || null == cmbNationalite.getValue()) {
+                AlerteUtils.afficherMessageDansAlerte("Attention !!!", "Il faut saisir toutes les informations !", Alert.AlertType.WARNING);
+            } else {
+                marque.setLibelle(txtLibelle.getText());
+                marque.setCheminComplet(cheminComplet);
+                marque.setNationalite(cmbNationalite.getValue());
 
-            facadeMetierMarque.creerMarque(marque);
+                facadeMetierMarque.creerMarque(marque);
 
-            Lanceur.loadFxml("marque/listerMarques");
+                Lanceur.loadFxml("marque/listerMarques");
+            }
         } catch (BusinessException | IOException e) {
             AlerteUtils.afficherExceptionDansAlerte(e, Alert.AlertType.ERROR);
             e.printStackTrace();
@@ -106,15 +101,20 @@ public class FicheMarqueController {
 
         File selectedFile = fileChooser.showOpenDialog(Lanceur.stage);
 
-        try {
-            if (Objects.nonNull(selectedFile)) {
-                this.cheminComplet = Objects.requireNonNull(FicheMarqueController.class.getResource("/" + selectedFile.getName())).toURI().toString();
-                Image selectedImage = new Image(cheminComplet);
+        if (Objects.nonNull(selectedFile)) {
+            this.cheminComplet = selectedFile.toURI().toString();
+            Image selectedImage = new Image(cheminComplet);
 
-                this.btnChoisirImage.setText("Image trouvée !");
-                this.imgViewCheminComplet.setImage(selectedImage);
-            }
-        } catch (URISyntaxException e) {
+            this.btnChoisirImage.setText("Image trouvée !");
+            this.imgViewCheminComplet.setImage(selectedImage);
+        }
+    }
+
+    @FXML
+    public void goToListeMarques() {
+        try {
+            Lanceur.loadFxml("marque/listerMarques");
+        } catch (IOException e) {
             AlerteUtils.afficherExceptionDansAlerte(e, Alert.AlertType.ERROR);
             e.printStackTrace();
         }
