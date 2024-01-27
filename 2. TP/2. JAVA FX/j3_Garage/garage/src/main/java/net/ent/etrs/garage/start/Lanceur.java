@@ -11,6 +11,8 @@ import java.util.Objects;
 public class Lanceur extends Application {
     private static Scene scene;
 
+    public static Stage stage;
+
     public static void main(String[] args) {
         Application.launch(args);
     }
@@ -32,6 +34,7 @@ public class Lanceur extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
+        Lanceur.stage = stage;
         Lanceur.scene  = new Scene(FXMLLoader.load(Objects.requireNonNull(Lanceur.class.getResource("/views/accueil.fxml"))));
         stage.setScene(Lanceur.scene);
         stage.show();
