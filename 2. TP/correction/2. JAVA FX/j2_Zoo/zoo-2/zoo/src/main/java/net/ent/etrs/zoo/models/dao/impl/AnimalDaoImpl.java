@@ -12,8 +12,8 @@ public class AnimalDaoImpl extends JpaBaseDao<Animal> implements AnimalDao {
         try {
             TypedQuery<Animal> query = this.em.createQuery("""
 
-                    SELECT a FROM Animal a 
-                    WHERE a NOT IN ( 
+                    SELECT a FROM Animal a\s
+                    WHERE a NOT IN (\s
                     SELECT a2 FROM Soigneur s INNER JOIN s.animaux a2 WHERE s.id IS NOT NULL)
                     
                     """, Animal.class);

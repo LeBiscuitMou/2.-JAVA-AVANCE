@@ -3,7 +3,7 @@ package net.ent.etrs.keepFit.model.dao.base;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.ent.etrs.keepFit.model.commons.JpaUtil;
+import net.ent.etrs.keepFit.model.dao.util.JpaUtil;
 import net.ent.etrs.keepFit.model.dao.exceptions.DaoException;
 import net.ent.etrs.keepFit.model.entities.AbstractEntity;
 

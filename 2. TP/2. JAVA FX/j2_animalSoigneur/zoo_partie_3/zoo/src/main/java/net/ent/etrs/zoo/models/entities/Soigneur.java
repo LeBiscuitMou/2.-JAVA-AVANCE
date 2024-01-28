@@ -45,11 +45,18 @@ public class Soigneur extends AbstractEntity {
     @Column(name = "date_arrivee", nullable = false)
     private LocalDate dateArrivee;
 
+//    @Getter @Setter
+//    @ElementCollection
+//    @Enumerated(EnumType.STRING)
+//    @CollectionTable(name = "soigneur_type", joinColumns = @JoinColumn(name = "soigneur_id", foreignKey = @ForeignKey(name = "soigneur_type__soigneur_id__fk")))
+//    @Column(name = "type_soignable", length = 20, nullable = false)
+//    private Set<Type> typesSoignable = new HashSet<>();
+
     @Getter @Setter
     @ElementCollection
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "soigneur_type", joinColumns = @JoinColumn(name = "soigneur_id", foreignKey = @ForeignKey(name = "soigneur_type__soigneur_id__fk")))
-    @Column(name = "type_soignable", length = 20, nullable = false)
+    @Column(name = "type_soigneur", length = 20, nullable = false)
     private Set<Type> typesSoignable = new HashSet<>();
 
     @Getter @Setter

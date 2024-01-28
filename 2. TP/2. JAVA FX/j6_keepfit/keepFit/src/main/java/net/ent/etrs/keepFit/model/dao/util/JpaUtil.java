@@ -1,4 +1,4 @@
-package net.ent.etrs.keepFit.model.commons;
+package net.ent.etrs.keepFit.model.dao.util;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
