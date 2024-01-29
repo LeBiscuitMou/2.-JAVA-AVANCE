@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f53406ab-fb98-48de-b8d7-ad5f3236d03a" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="READ ME" />
+        <option value="JavaEntity.java.child.0" />
+        <option value="JavaEntity.java.child.1" />
+        <option value="JavaEntity.java.child.2" />
+        <option value="JavaEntity.java.child.3" />
+        <option value="JavaEntity.java.child.4" />
+        <option value="JavaEntity" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\.m2\repository" />
+        <option name="userSettingsFile" value="E:\.m2\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2b4kPP4v8RXsUwva3hU4WEbI8JN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Lanceur.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/03_UV/JavaAv/SqueletteJava",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "fileTemplates",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Lanceur" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="net.ent.etrs.projet.start.Lanceur" />
+      <module name="SqueletteJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.ent.etrs.projet.start.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Lanceur" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-temurin-17.0.9-f644763e9732-636ea113" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f53406ab-fb98-48de-b8d7-ad5f3236d03a" name="Changes" comment="" />
+      <created>1698135949544</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698135949544</updated>
+      <workItem from="1705481714439" duration="9000" />
+      <workItem from="1705491039848" duration="23000" />
+      <workItem from="1705515629642" duration="89000" />
+      <workItem from="1705523301711" duration="14000" />
+      <workItem from="1705580948916" duration="29000" />
+      <workItem from="1705581583527" duration="3000" />
+      <workItem from="1705581726394" duration="2087000" />
+      <workItem from="1705583898052" duration="33000" />
+      <workItem from="1705584229230" duration="184000" />
+      <workItem from="1705584452494" duration="1286000" />
+      <workItem from="1705585748491" duration="7000" />
+      <workItem from="1705585774892" duration="2000" />
+      <workItem from="1705585885386" duration="15000" />
+      <workItem from="1705586332208" duration="57000" />
+      <workItem from="1705587682315" duration="239000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

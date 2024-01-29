@@ -60,7 +60,7 @@ public class FicheVoitureController {
 
             txtModele.setText(voiture.getModele());
 
-            sldPuissance.setValue(voiture.getPuissance() != null ? voiture.getPuissance() : 0);
+            sldPuissance.setValue(voiture.getPuissance() != null ? voiture.getPuissance() : 1);
 
             spnPuissance.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000,
                     voiture.getPuissance() != null ? voiture.getPuissance() : 0));

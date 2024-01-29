@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import net.ent.etrs.garage.model.entities.Marque;
 import net.ent.etrs.garage.model.entities.Voiture;
+import net.ent.etrs.garage.model.entities.comparator.ComparatorPuissanceVoiture;
 import net.ent.etrs.garage.model.entities.references.ConstantesMetier;
 import net.ent.etrs.garage.model.facade.IFacadeMetierVoiture;
 import net.ent.etrs.garage.model.facade.exceptions.BusinessException;
@@ -42,6 +43,9 @@ public class ListeVoituresController {
 
     @FXML
     public TextField txtRechercheVoiture;
+
+    @FXML
+    public CheckBox chkTriParPuissance;
 
     private ObservableList<Voiture> voitureObservableList = FXCollections.observableArrayList();
 
@@ -164,6 +168,43 @@ public class ListeVoituresController {
                 Lanceur.loadFxml("voiture/ficheVoiture", new FicheVoitureController(voitureToEdit));
             }
         } catch (IOException e) {
+            AlerteUtils.afficherExceptionDansAlerte(e, Alert.AlertType.ERROR);
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void cocherTriParPuissance() {
+        if (chkTriParPuissance.isSelected()) {
+            trierParPuissance();
+        } else {
+            initialize();
+        }
+    }
+
+    private void trierParPuissance() {
+        try {
+            FilteredList<Voiture> voitureFilteredList = new FilteredList<>(voitureObservableList, v -> true);
+
+            this.txtRechercheVoiture.textProperty().addListener(obs -> {
+                voitureFilteredList.setPredicate(v -> v.getImmatriculation().toLowerCase().startsWith(txtRechercheVoiture.getText().toLowerCase()) ||
+                        v.getModele().toLowerCase().startsWith(txtRechercheVoiture.getText().toLowerCase()));
+            });
+
+            voitureObservableList.clear();
+            voitureObservableList.addAll(facadeMetierVoiture.recupererToutesLesVoitures());
+            voitureObservableList.sort(new ComparatorPuissanceVoiture().reversed());
+
+            tblVoitures.setItems(voitureFilteredList);
+
+            tbcImmatriculation.setCellValueFactory(v -> new SimpleStringProperty(v.getValue().getImmatriculation()));
+            tbcModele.setCellValueFactory(v -> new SimpleStringProperty(v.getValue().getModele()));
+            tbcMarque.setCellValueFactory(v -> new SimpleStringProperty(v.getValue().getMarque().getLibelle()));
+            tbcPuissance.setCellValueFactory(v -> new SimpleObjectProperty<>(v.getValue().getPuissance()));
+            tbcMiseEnCirculation.setCellValueFactory(v -> new SimpleObjectProperty<>(v.getValue().getMiseEnCirculation()));
+
+            this.ajouterContextMenu();
+        } catch (BusinessException e) {
             AlerteUtils.afficherExceptionDansAlerte(e, Alert.AlertType.ERROR);
             e.printStackTrace();
         }

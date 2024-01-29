@@ -16,6 +16,7 @@ import net.ent.etrs.megaMovies.model.facade.exceptions.BusinessException;
 import net.ent.etrs.megaMovies.model.facade.impl.FacadeMetierFactory;
 import net.ent.etrs.megaMovies.start.Lanceur;
 import net.ent.etrs.megaMovies.views.utils.AlerteUtils;
+import net.ent.etrs.megaMovies.views.utils.Item;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -30,9 +31,9 @@ public class VoirFilmoController {
     @FXML
     public Label lblFilmo;
 
-    private IFacadeMetierFilm facadeMetierFilm = FacadeMetierFactory.fabriquerFacadeMetierFilm();
-
     private Realisateur realisateur = new Realisateur();
+
+    private IFacadeMetierFilm facadeMetierFilm = FacadeMetierFactory.fabriquerFacadeMetierFilm();
 
     private IFacadeMetierRealisateur facadeMetierRealisateur = FacadeMetierFactory.fabriquerFacadeMetierRealisateur();
 
@@ -53,14 +54,7 @@ public class VoirFilmoController {
                 cmbRealisateur.getItems().add(r.getNom());
             }
             cmbRealisateur.setValue(realisateur.getNom());
-            StringBuilder filmo = new StringBuilder();
-            for (Film f : filmObservableList){
-                if (f.getRealisateur().getNom().equals(cmbRealisateur.getValue())) {
-                    DateTimeFormatter dt = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
-                    filmo.append(f.getTitre()).append(" sorti le ").append(f.getDateSortie().format(dt)).append("\n");
-                }
-            }
-            lblFilmo.setText(filmo.toString());
+            afficherFilmo();
         } catch (BusinessException e) {
             AlerteUtils.afficherExceptionDansAlerte(e, Alert.AlertType.ERROR);
             e.printStackTrace();
