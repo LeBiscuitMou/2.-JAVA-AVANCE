@@ -144,10 +144,14 @@ public class AccueilController {
             }
         } catch (BusinessException e) {
             AlerteUtils.afficherExceptionDansAlerte(e, Alert.AlertType.ERROR);
+            AlerteUtils.afficherMessageDansAlerte("Ah il y a eu une erreur, mais c'est pas grave vous êtes quand meême magnifique !", Alert.AlertType.INFORMATION);
             e.printStackTrace();
         }
     }
 
+    /**
+     * Afficher les détails du stage sélectionné
+     */
     private void afficherStage() {
         try {
             Stage stageToAfficher = tblStage.getSelectionModel().getSelectedItem();
@@ -160,6 +164,9 @@ public class AccueilController {
         }
     }
 
+    /**
+     * Ajout d'une boite permettant de choisir son fichier
+     */
     @FXML
     public void parcourir() {
         FileChooser fileChooser = new FileChooser();
@@ -172,16 +179,22 @@ public class AccueilController {
 
         if (Objects.nonNull(selectedFile)) {
             lblCheminFichier.setText(selectedFile.getAbsolutePath());
+        } else {
+            lblCheminFichier.setText("chemin du fichier");
         }
     }
 
+    /**
+     * Permet de créer un stage lorsque l'on clique sur le bouton
+     */
     @FXML
     public void creerStage() {
         try {
             if (null == txtCode.getText() || txtCode.getText().isBlank()
                     || null == dtpDebut.getValue()
                     || null == dtpFin.getValue()
-                    || null == lblCheminFichier.getText() || lblCheminFichier.getText().equals("chemin du fichier")) {
+                    || null == lblCheminFichier.getText() || lblCheminFichier.getText().equals("chemin du fichier")
+                    || null == this.selectedFile) {
                 AlerteUtils.afficherMessageDansAlerte("Attention !!!", "Il faut saisir toutes les informations !", Alert.AlertType.WARNING);
             } else if (!txtCode.getText().matches("[A-Z]{2}\\d{2}"))  {
                 AlerteUtils.afficherMessageDansAlerte("Attention !!!", "Il faut saisir correctement le code de stage !\nExemple : AA99", Alert.AlertType.WARNING);
