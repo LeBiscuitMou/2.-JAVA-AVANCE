@@ -3,6 +3,7 @@ package net.ent.etrs.geststage.model.facade.impl;
 import net.ent.etrs.geststage.model.dao.IDaoStagiaire;
 import net.ent.etrs.geststage.model.dao.exceptions.DaoException;
 import net.ent.etrs.geststage.model.dao.impl.DaoFactory;
+import net.ent.etrs.geststage.model.entities.Stage;
 import net.ent.etrs.geststage.model.entities.Stagiaire;
 import net.ent.etrs.geststage.model.facade.IFacadeMetierStagiaire;
 import net.ent.etrs.geststage.model.facade.exceptions.BusinessException;

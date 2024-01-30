@@ -149,6 +149,15 @@ public class AccueilController {
     }
 
     private void afficherStage() {
+        try {
+            Stage stageToAfficher = tblStage.getSelectionModel().getSelectedItem();
+            if (Objects.nonNull(stageToAfficher)) {
+                Lanceur.loadFxml("stage", new StageController(stageToAfficher));
+            }
+        } catch (IOException e) {
+            AlerteUtils.afficherExceptionDansAlerte(e, Alert.AlertType.ERROR);
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -169,10 +178,16 @@ public class AccueilController {
     @FXML
     public void creerStage() {
         try {
-            if (null != txtCode.getText() && !txtCode.getText().isBlank()
-                    && null != dtpDebut.getValue()
-                    && null != dtpFin.getValue()
-                    && null != lblCheminFichier.getText() && !lblCheminFichier.getText().equals("chemin du fichier")) {
+            if (null == txtCode.getText() || txtCode.getText().isBlank()
+                    || null == dtpDebut.getValue()
+                    || null == dtpFin.getValue()
+                    || null == lblCheminFichier.getText() || lblCheminFichier.getText().equals("chemin du fichier")) {
+                AlerteUtils.afficherMessageDansAlerte("Attention !!!", "Il faut saisir toutes les informations !", Alert.AlertType.WARNING);
+            } else if (!txtCode.getText().matches("[A-Z]{2}\\d{2}"))  {
+                AlerteUtils.afficherMessageDansAlerte("Attention !!!", "Il faut saisir correctement le code de stage !\nExemple : AA99", Alert.AlertType.WARNING);
+            } else if (dtpFin.getValue().isBefore(dtpDebut.getValue())) {
+                AlerteUtils.afficherMessageDansAlerte("Attention !!!", "La date de fin doit être après la date de début !", Alert.AlertType.WARNING);
+            } else {
                 stage.setCode(txtCode.getText());
                 stage.setDateDebut(dtpDebut.getValue());
                 stage.setDateFin(dtpFin.getValue());
@@ -191,10 +206,7 @@ public class AccueilController {
                 }
 
                 facadeMetierStage.creerStage(stage);
-
                 initialize();
-            } else {
-                AlerteUtils.afficherMessageDansAlerte("Attention !!!", "Il faut saisir toutes les informations !", Alert.AlertType.WARNING);
             }
         } catch (IOException | StagiaireException | BusinessException e) {
             AlerteUtils.afficherExceptionDansAlerte(e, Alert.AlertType.ERROR);

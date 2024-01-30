@@ -1,6 +1,8 @@
 package net.ent.etrs.geststage.model.entities;
 
 import lombok.*;
+import net.ent.etrs.geststage.model.entities.exceptions.StagiaireException;
+import net.ent.etrs.geststage.model.entities.references.ConstantesMetier;
 import net.ent.etrs.geststage.model.entities.references.Matiere;
 
 import javax.persistence.*;
@@ -9,6 +11,7 @@ import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Entity
 @Table(name = "STAGIAIRE")
@@ -54,7 +57,7 @@ public class Stagiaire extends AbstractEntity {
     @Getter
     @Setter
     //BV
-    @Positive(message = "la moyenne doit être positif")
+    @Min(value = 0, message = "la moyenne ne peut pas être en dessous de 0")
     @Max(value = 20, message = "la moyenne ne peut pas être au dessus de 20")
     //JPA
     @Column(name = "moyenne", nullable = true, unique = false)
@@ -70,5 +73,12 @@ public class Stagiaire extends AbstractEntity {
 
     public Map<Matiere, Float> getNotes() {
         return Collections.unmodifiableMap(notes);
+    }
+
+    public void ajouterNoteAMatiere(Matiere matiere, Float noteMatiere) throws StagiaireException {
+        if (Objects.isNull(matiere) || Objects.isNull(noteMatiere)) {
+            throw new StagiaireException(ConstantesMetier.STAGIAIRE_MATIERE_NOTE__NULL);
+        }
+        this.notes.put(matiere, noteMatiere);
     }
 }

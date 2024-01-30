@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -11,7 +12,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ent.etrs.geststage.views.AccueilController">
    <children>
       <Button fx:id="btnParcourir" layoutX="8.0" layoutY="31.0" mnemonicParsing="false" onAction="#parcourir" text="Parcourir..." />
-      <TextField fx:id="txtCode" layoutX="86.0" layoutY="31.0" prefHeight="25.0" prefWidth="72.0" />
+      <TextField fx:id="txtCode" layoutX="86.0" layoutY="31.0" prefHeight="25.0" prefWidth="72.0" promptText="ex : AA99" />
       <Label layoutX="108.0" layoutY="14.0" text="Code" />
       <DatePicker fx:id="dtpDebut" layoutX="168.0" layoutY="31.0" />
       <Label layoutX="211.0" layoutY="14.0" text="Date de début" />
@@ -29,5 +30,6 @@
       <TextField fx:id="txtRechercheCodeStage" layoutX="108.0" layoutY="112.0" />
       <Label layoutX="30.0" layoutY="116.0" text="Code stage :" />
       <Label fx:id="lblCheminFichier" layoutX="14.0" layoutY="66.0" text="chemin du fichier" />
+      <Separator layoutX="-34.0" layoutY="87.0" prefHeight="17.0" prefWidth="650.0" />
    </children>
 </AnchorPane>

@@ -19,4 +19,5 @@ public final class ConstantesMetier {
     public static final String ERROR_NULL = " doit être référencé";
     public static final String STAGIAIRE_NULL = "Le stagiaire ne peut pas être null";
     public static final String STAGIAIRE_NOT_EXIST = "Le stagiaire n'existe pas dans la liste";
+    public static final String STAGIAIRE_MATIERE_NOTE__NULL = "Les notes et les matières ne peuvent pas être null";
 }
