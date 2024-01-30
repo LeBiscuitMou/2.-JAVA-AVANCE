@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ent.etrs.geststage.views.AccueilController">
+   <children>
+      <Button fx:id="btnParcourir" layoutX="8.0" layoutY="31.0" mnemonicParsing="false" onAction="#parcourir" text="Parcourir..." />
+      <TextField fx:id="txtCode" layoutX="86.0" layoutY="31.0" prefHeight="25.0" prefWidth="72.0" />
+      <Label layoutX="108.0" layoutY="14.0" text="Code" />
+      <DatePicker fx:id="dtpDebut" layoutX="168.0" layoutY="31.0" />
+      <Label layoutX="211.0" layoutY="14.0" text="Date de début" />
+      <DatePicker fx:id="dtpFin" layoutX="349.0" layoutY="31.0" />
+      <Label layoutX="392.0" layoutY="14.0" text="Date de fin" />
+      <Button fx:id="btnImporter" layoutX="528.0" layoutY="31.0" mnemonicParsing="false" onAction="#creerStage" text="Importer" />
+      <TableView fx:id="tblStage" layoutX="22.0" layoutY="146.0" prefHeight="240.0" prefWidth="564.0">
+        <columns>
+          <TableColumn fx:id="tbcCode" prefWidth="115.0" text="Code" />
+          <TableColumn fx:id="tbcDateDebut" prefWidth="169.0" text="Date de début" />
+            <TableColumn fx:id="tbcDateFin" prefWidth="169.0" text="Date de fin" />
+            <TableColumn fx:id="tbcNbStagiaire" prefWidth="110.0" text="Nb stagiaires" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtRechercheCodeStage" layoutX="108.0" layoutY="112.0" />
+      <Label layoutX="30.0" layoutY="116.0" text="Code stage :" />
+      <Label fx:id="lblCheminFichier" layoutX="14.0" layoutY="66.0" text="chemin du fichier" />
+   </children>
+</AnchorPane>
