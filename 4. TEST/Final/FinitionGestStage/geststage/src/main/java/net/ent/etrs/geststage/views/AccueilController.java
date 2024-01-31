@@ -80,20 +80,20 @@ public class AccueilController {
     @FXML
     public void initialize() {
         try {
-            FilteredList<Stage> stageFilteredList = new FilteredList<>(stageObservableList, stage -> true);
+            FilteredList<Stage> stageFilteredList = new FilteredList<>(stageObservableList, s -> true);
 
             this.txtRechercheCodeStage.textProperty().addListener(obs -> {
-                stageFilteredList.setPredicate(stage -> stage.getCode().toLowerCase().startsWith(txtRechercheCodeStage.getText().toLowerCase()));
+                stageFilteredList.setPredicate(s -> s.getCode().toLowerCase().startsWith(txtRechercheCodeStage.getText().toLowerCase()));
             });
 
             stageObservableList.clear();
             stageObservableList.addAll(facadeMetierStage.recupererTousLesStages());
             tblStage.setItems(stageFilteredList);
 
-            tbcCode.setCellValueFactory(stage -> new SimpleStringProperty(stage.getValue().getCode()));
-            tbcDateDebut.setCellValueFactory(stage -> new SimpleObjectProperty<>(stage.getValue().getDateDebut()));
-            tbcDateFin.setCellValueFactory(stage -> new SimpleObjectProperty<>(stage.getValue().getDateFin()));
-            tbcNbStagiaire.setCellValueFactory(stage -> new SimpleObjectProperty<>(stage.getValue().getStagiaires().size()));
+            tbcCode.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getCode()));
+            tbcDateDebut.setCellValueFactory(s -> new SimpleObjectProperty<>(s.getValue().getDateDebut()));
+            tbcDateFin.setCellValueFactory(s -> new SimpleObjectProperty<>(s.getValue().getDateFin()));
+            tbcNbStagiaire.setCellValueFactory(s -> new SimpleObjectProperty<>(s.getValue().getStagiaires().size()));
 
             this.ajouterContextMenu();
         } catch (BusinessException e) {
