@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e498856-9b1b-4b5d-82dc-4ff0d982eac8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/dao/impl/DaoJeuVideoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/dao/impl/DaoJeuVideoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/facade/impl/FacadeMetierChargementFichierImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/facade/impl/FacadeMetierChargementFichierImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/facade/impl/FacadeMetierConsoleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../4. TEST/Intermediaire/GestionJeuxVideos/src/main/java/net/ent/etrs/jeuVideo/model/facade/impl/FacadeMetierConsoleImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="9e498856-9b1b-4b5d-82dc-4ff0d982eac8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -45,7 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/UV_3/2. JAVA AVANCE/2. TP/correction/j8_ConsoElecGaz/Correction/ConsoElecGaz",
+    "last_opened_file_path": "C:/Users/lp/Documents/Cours/Spé 8230/Lucas/UV_3/2.-JAVA-AVANCE/2. TP/correction/1. JAVA LOMBOK/j9_Judo/JUDO_CORRECTION/JUDO",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,6 +59,13 @@
     ]
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-temurin-17.0.9-3183f394aec4-842bf14d" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -77,6 +80,7 @@
       <workItem from="1705483676346" duration="24000" />
       <workItem from="1705604510149" duration="442000" />
       <workItem from="1705653588452" duration="22000" />
+      <workItem from="1708035282886" duration="57000" />
     </task>
     <servers />
   </component>
